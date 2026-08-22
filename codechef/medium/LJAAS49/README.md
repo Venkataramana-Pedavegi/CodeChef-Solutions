@@ -4,20 +4,20 @@
 
 ## Problem
 
-### Debug this code
+### Area of circle
 
-Rectify the error in the code. The program is supposed to take two integer inputs and print their division.
+Write a program that takes the radius of a circle as input and prints its area. (use $\pi$ = 3.14)
 
 ### Sample 1:
 Input
 Output
 
 ```
-5 5
+5
 ```
 
 ```
-1
+78.5
 ```
 
 ## Solution
@@ -25,18 +25,20 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-22T14:07:17.483Z  
+**Submitted:** 2026-08-22T14:11:20.205Z  
 
 ```java
 import java.util.Scanner;
-public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int one = scanner.nextInt();
-        int two = scanner.nextInt();
-        System.out.println(one / two);
-    }
+class Codechef
+{
+	public static void main (String[] args) 
+	{
+        Scanner sc=new Scanner(System.in);
+        int number=sc.nextInt();
+        System.out.println(3.14*number*number);
+	}
 }
+
 ```
 
 ---
