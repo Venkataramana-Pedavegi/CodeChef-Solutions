@@ -1,9 +1,10 @@
 import java.util.Scanner;
-public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int one = scanner.nextInt();
-        int two = scanner.nextInt();
-        System.out.println(one / two);
-    }
+class Codechef
+{
+	public static void main (String[] args) 
+	{
+        Scanner sc=new Scanner(System.in);
+        int number=sc.nextInt();
+        System.out.println(3.14*number*number);
+	}
 }
