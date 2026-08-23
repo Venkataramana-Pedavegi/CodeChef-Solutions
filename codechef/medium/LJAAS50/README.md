@@ -26,22 +26,21 @@ Code Chef
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-22T14:15:01.523Z  
+**Submitted:** 2026-08-23T15:45:27.544Z  
 
 ```java
 import java.util.Scanner;
 
 class Codechef
 {
-	public static void main (String[] args) 
-	{
-        Scanner sc=new Scanner(System.in);
-        String one=sc.nextLine();
-        String two=sc.nextLine();
-        System.out.println(one + " " +two);
-	}
+    public static void main(String[] args)
+    {
+        Scanner scanner = new Scanner(System.in);
+        String one = scanner.nextLine();
+        String two = scanner.nextLine();
+        System.out.println(one + " " + two);
+    }
 }
-
 ```
 
 ---
