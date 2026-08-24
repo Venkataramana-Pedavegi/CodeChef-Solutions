@@ -15,7 +15,7 @@ Rearrange the code given, so that it does the above task.
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-24T17:19:59.319Z  
+**Submitted:** 2026-08-24T17:20:02.482Z  
 
 ```cpp
 import java.util.Scanner; 
