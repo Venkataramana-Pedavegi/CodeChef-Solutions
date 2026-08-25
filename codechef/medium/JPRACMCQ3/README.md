@@ -18,7 +18,7 @@ If Chef parks her car for $H$ hours, what is the total parking charges that she 
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-25T14:23:13.794Z  
+**Submitted:** 2026-08-25T14:23:18.141Z  
 
 ```cpp
 import java.util.*;
