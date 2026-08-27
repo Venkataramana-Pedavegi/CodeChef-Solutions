@@ -1,27 +1,29 @@
 import java.util.Scanner;
-public class Main {
-    public static void main(String[] args) {
+public class Main 
+{
+    public static void main(String[] args) 
+    {
         Scanner scanner = new Scanner(System.in);
-        char ch = scanner.next().charAt(0);
+        int num1 = scanner.nextInt();
+        int num2 = scanner.nextInt();
+        char op = scanner.next().charAt(0); 
 
-        switch(ch) {
-            case 'a': 
-                System.out.println("Vowel"); 
+        switch(op) 
+        {
+            case '+': 
+                System.out.println(num1 + num2); 
                 break;
-            case 'e': 
-                System.out.println("Vowel"); 
+            case '-': 
+                System.out.println(num1 - num2); 
                 break;
-            case 'i': 
-                System.out.println("Vowel"); 
+            case '*': 
+                System.out.println(num1 * num2); 
                 break;
-            case 'o': 
-                System.out.println("Vowel"); 
-                break;
-            case 'u': 
-                System.out.println("Vowel"); 
+            case '/': 
+                System.out.println(num1 / num2); 
                 break;
             default: 
-                System.out.println("Consonant");
+                System.out.println("Invalid operator");
         }
     }
 }
