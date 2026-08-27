@@ -25,7 +25,7 @@ Vowel
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-27T13:57:12.041Z  
+**Submitted:** 2026-08-27T13:57:23.188Z  
 
 ```java
 import java.util.Scanner;
