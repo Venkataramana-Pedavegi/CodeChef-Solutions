@@ -66,7 +66,7 @@ The difference between these values is $1$.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-31T10:14:27.285Z  
+**Submitted:** 2026-08-31T10:14:37.523Z  
 
 ```java
 import java.util.*;
