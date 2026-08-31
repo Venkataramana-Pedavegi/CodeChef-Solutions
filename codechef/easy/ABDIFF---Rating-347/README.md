@@ -63,12 +63,12 @@ The difference between these values is $1$.
 
 ## Solution
 
-**Language:** C++  
+**Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-31T10:14:10.673Z  
+**Submitted:** 2026-08-31T10:14:27.285Z  
 
-```cpp
+```java
 import java.util.*;
 import java.lang.*;
 import java.io.*;
@@ -79,11 +79,9 @@ class Codechef
 	public static void main (String[] args)
 	{
 		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
-				int blackCells = (n * n) / 2;
-		System.out.println(blackCells);
+		int a = sc.nextInt();
+		int b = sc.nextInt();
 
-		
 	}
 }
 
