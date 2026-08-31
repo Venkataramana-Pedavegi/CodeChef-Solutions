@@ -66,7 +66,7 @@ The difference between these values is $1$.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-31T10:14:57.509Z  
+**Submitted:** 2026-08-31T10:15:23.416Z  
 
 ```java
 import java.util.*;
@@ -83,6 +83,8 @@ class Codechef
 		int b = sc.nextInt();
                 int sum = a + b;
         int product = a * b;
+        int difference = Math.abs(sum - product);
+        System.out.println(difference);
 
 	}
 }
