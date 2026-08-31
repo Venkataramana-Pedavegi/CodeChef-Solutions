@@ -120,7 +120,7 @@ Now, among these $700$ users, $700$ couldn't solve any problem even though they 
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-30T15:45:39.084Z  
+**Submitted:** 2026-08-31T10:12:04.091Z  
 
 ```java
 import java.util.*;
