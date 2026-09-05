@@ -13,14 +13,14 @@ Print  **"Learn Coding on CodeChef"**  to the console.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T17:28:07.300Z  
+**Submitted:** 2026-09-05T17:05:16.513Z  
 
 ```java
 class Codechef
 {
 	public static void main (String[] args)
 	{
-        System.out.println("Learn Coding on CodeChef");
+		System.out.println("Learn Coding on CodeChef");
 	}
 }
 
