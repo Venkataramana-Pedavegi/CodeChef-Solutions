@@ -1,27 +1,11 @@
-import java.util.*;
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        if(scanner.hasNextInt()) {
-            int t = scanner.nextInt();
-            // System.out.println("Number of test cases: " + t); // Debug line
-            while (t-- > 0) {
-                if(scanner.hasNextInt()) {
-                    int num = scanner.nextInt();
-                    if (isEven(num))
-                        System.out.println("Even");
-                    else
-                        System.out.println("Odd");
-                } else {
-                    System.out.println("Expected more numbers as input");
-                }
-            }
-        } else {
-            System.out.println("Expected an integer for number of test cases");
+        int t = scanner.nextInt();
+        while (t-- > 0) {
+            int N = scanner.nextInt();
+            System.out.println(N + 1);
         }
-    }
-    
-    public static boolean isEven(int num) {
-        return num % 2 == 0;
     }
 }
