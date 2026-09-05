@@ -13,15 +13,12 @@ Print the number 108 using arithmetic operations on the numbers 9 and 12.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T17:27:07.753Z  
+**Submitted:** 2026-09-05T17:05:00.124Z  
 
 ```java
 class Codechef {
     public static void main(String[] args) {
-        int a=9;
-        int b=12;
-        System.out.println(a*b);
-        
+        System.out.println(9 * 12);
     }
 }
 ```
