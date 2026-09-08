@@ -76,7 +76,7 @@ Since a valid assignment exists, the answer is "Yes".
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-08T15:43:35.110Z  
+**Submitted:** 2026-09-08T15:43:44.749Z  
 
 ```java
 import java.util.*;
