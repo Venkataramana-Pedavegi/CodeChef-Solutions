@@ -24,16 +24,12 @@ Input: s = "a"
 Output: "a"
 ```
 
- **Constraints:** 
-1 <= s.size() <= 106
-s contains only alphabetic characters (both uppercase and lowercase).
-
 ## Solution
 
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-08T16:10:13.920Z  
+**Submitted:** 2026-09-11T00:13:49.444Z  
 
 ```java
 class Solution {
