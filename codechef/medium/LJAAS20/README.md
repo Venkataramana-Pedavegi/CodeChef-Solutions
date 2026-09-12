@@ -29,20 +29,17 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-21T14:24:03.971Z  
+**Submitted:** 2026-09-12T15:09:47.083Z  
 
 ```java
-class Codechef
-{
-	public static void main (String[] args) 
-	{
-        System.out.println(1 + " - " +(1*1));
-        System.out.println(2 + " - " +(2*2));
-        System.out.println(3 + " - " +(3*3));
-        System.out.println(4 + " - " +(4*4));
-        System.out.println(5 + " - " +(5*5));
-
-	}
+public class Main {
+    public static void main(String[] args) {
+        System.out.println(1 + " - " + (1 * 1));
+        System.out.println(2 + " - " + (2 * 2));
+        System.out.println(3 + " - " + (3 * 3));
+        System.out.println(4 + " - " + (4 * 4));
+        System.out.println(5 + " - " + (5 * 5));
+    }
 }
 
 ```
