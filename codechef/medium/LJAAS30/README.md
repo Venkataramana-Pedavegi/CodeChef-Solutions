@@ -27,7 +27,7 @@ Kelvin - 298.5
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-21T14:33:05.742Z  
+**Submitted:** 2026-09-12T15:12:56.349Z  
 
 ```java
 public class Main {
