@@ -13,15 +13,14 @@
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-21T14:30:49.680Z  
+**Submitted:** 2026-09-12T15:11:26.594Z  
 
 ```java
 public class Main {
     public static void main(String[] args) {
-        int x=20;
-        int y=6;
-        System.out.println(x/y);
-        
+        int x = 20;
+        int y = 6;
+        System.out.println(x / y);
     }
 }
 
