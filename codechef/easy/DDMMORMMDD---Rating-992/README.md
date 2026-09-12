@@ -56,34 +56,26 @@ Fun fact: `29/02/2024` (read as `DD/MM/YYYY`) is a leap year day.
 
 ## Solution
 
-**Language:** Java  
+**Language:** Python  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-17T16:35:25.581Z  
+**Submitted:** 2026-09-12T15:32:32.955Z  
 
-```java
-import java.util.Scanner;
+```py
+t = int(input())
 
-public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int t = scanner.nextInt();
-
-        while (t-- > 0) {
-            String s = scanner.next();
-                        int x = (s.charAt(0) - '0') * 10 + (s.charAt(1) - '0');
-            int y = (s.charAt(3) - '0') * 10 + (s.charAt(4) - '0');
-            if (x <= 12 && y <= 12) {
-                System.out.println("BOTH");
-            } else if (y <= 12) {
-                System.out.println("DD/MM/YYYY");
-            } else {
-                System.out.println("MM/DD/YYYY");
-            }
-
-        }
-    }
-}
+while t > 0:
+    s = input()
+    x = int(s[0:2])
+    y = int(s[3:5])
+    
+    if x <= 12 and y <= 12:
+        print("BOTH")
+    elif y <= 12:
+        print("DD/MM/YYYY")
+    else:
+        print("MM/DD/YYYY")
+    t -= 1
 
 ```
 
