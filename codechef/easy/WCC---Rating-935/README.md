@@ -70,72 +70,47 @@ NNDNNDDDNNDNDN
 
 ## Solution
 
-**Language:** Java  
+**Language:** Python  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-16T16:00:26.314Z  
+**Submitted:** 2026-09-12T15:30:54.721Z  
 
-```java
-import java.util.*;
-import java.lang.*;
-import java.io.*;
-
-class Codechef
-{
-	public static void main (String[] args) throws java.lang.Exception
-	{
-		Scanner sc = new Scanner(System.in);
-
-        int T = sc.nextInt();
-
-        while (T-- > 0)
-        {
-            int X = sc.nextInt();
-            String S = sc.next();
-
-            int carlsen = 0;
-            int chef = 0;
-
-            for (int i = 0; i < S.length(); i++)
-            {
-                char ch = S.charAt(i);
-
-                if (ch == 'C')
-                {
-                    carlsen += 2;
-                }
-                else if (ch == 'N')
-                {
-                    chef += 2;
-                }
-                else if (ch == 'D')
-                {
-                    carlsen += 1;
-                    chef += 1;
-                }
-            }
-
-            if (carlsen > chef)
-            {
-                System.out.println(60 * X);
-            }
-            else if (carlsen == chef)
-            {
-                System.out.println(55 * X);
-            }
-            else
-            {
-                System.out.println(40 * X);
-            }
-        }
-
-        sc.close();
+```py
+# cook your dish here
+# Function to solve each test case
+def solve():
+    X = int(input())
+    S = input()
     
+    carlsen_points = 0
+    chef_points = 0
+    
+    # Calculate points for each game
+    for char in S:
+        if char == 'C':
+            carlsen_points += 2
+        elif char == 'N':
+            chef_points += 2
+        else:  # 'D' for draw
+            carlsen_points += 1
+            chef_points += 1
+            
+    # Determine prize money based on points
+    if carlsen_points > chef_points:
+        print(60 * X)
+    elif carlsen_points == chef_points:
+        print(55 * X)
+    else:
+        print(40 * X)
 
+# Main function to handle multiple test cases
+def main():
+    t = int(input())
+    for _ in range(t):
+        solve()
 
-	}
-}
-
+if __name__ == '__main__':
+    main()
 ```
 
 ---
