@@ -1,6 +1,5 @@
 class Solution {
     public ArrayList<Integer> sentenceWord(String s) {
-        // code here
         int words = 0;
                 int sentences = 0;
 
@@ -10,7 +9,6 @@ class Solution {
                 for (int i = 0; i < s.length(); i++) {
                     char ch = s.charAt(i);
 
-                    // Count words
                     if ((ch >= 'a' && ch <= 'z') ||
                         (ch >= 'A' && ch <= 'Z')) {
 
@@ -24,7 +22,6 @@ class Solution {
                         inWord = false;
                     }
 
-                    // Count sentences
                     if (ch == '.' || ch == '!' || ch == '?') {
                         if (hasContent) {
                             sentences++;
@@ -32,8 +29,6 @@ class Solution {
                         }
                     }
                 }
-
-                // Last sentence without punctuation
                 if (hasContent) {
                     sentences++;
                 }
