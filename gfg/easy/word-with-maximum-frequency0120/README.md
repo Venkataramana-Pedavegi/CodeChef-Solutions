@@ -22,15 +22,12 @@ Explanation: Every word has the frequency of "1", so we return "this 1" as this 
 
 ```
 
- **Constraints:** 
-1 ≤ s.size() ≤ 106
-
 ## Solution
 
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-08T16:08:27.370Z  
+**Submitted:** 2026-09-13T05:43:30.926Z  
 
 ```java
 class Solution {
