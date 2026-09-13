@@ -30,7 +30,7 @@ Explanation: The first character is uppercase, so characters at even indices rem
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-12T14:07:00.481Z  
+**Submitted:** 2026-09-13T12:21:28.248Z  
 
 ```cpp
 class Solution {
