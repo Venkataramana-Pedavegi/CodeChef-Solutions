@@ -28,7 +28,7 @@ Explanation: The distance between 'c' and 'b' is 1, and the distance between 'b'
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-13T12:29:40.513Z  
+**Submitted:** 2026-09-13T12:29:48.290Z  
 
 ```java
 class Solution {
