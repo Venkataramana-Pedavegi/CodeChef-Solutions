@@ -26,25 +26,27 @@ Explanation: The 2 spaces are replaced by '%20'
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-13T06:22:06.550Z  
+**Submitted:** 2026-09-13T12:13:31.391Z  
 
 ```java
 class Solution {
     static String URLify(String s) {
         // code here
-       StringBuilder ans = new StringBuilder();
+        // code here
+               StringBuilder ans = new StringBuilder();
 
-              for (int i = 0; i < s.length(); i++) {
-                  char ch = s.charAt(i);
+               for (int i = 0; i < s.length(); i++) {
+                   char ch = s.charAt(i);
 
-                  if (ch == ' ') {
-                      ans.append("%20");
-                  } else {
-                      ans.append(ch);
-                  }
-              }
+                   if (ch == ' ') {
+                       ans.append("%20");
+                   } else {
+                       ans.append(ch);
+                   }
+               }
 
-              return ans.toString(); 
+               return ans.toString();
+        
     }
 }
 ```
