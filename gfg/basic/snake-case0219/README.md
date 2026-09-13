@@ -38,7 +38,7 @@ Explanation: All upper case characters are converted to lower case and the white
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-13T12:30:52.692Z  
+**Submitted:** 2026-09-13T12:31:11.630Z  
 
 ```java
 class Solution {
