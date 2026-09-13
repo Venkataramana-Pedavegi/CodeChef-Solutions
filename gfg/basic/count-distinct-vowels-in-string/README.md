@@ -28,7 +28,7 @@ Explanation: It has only 1 distinct vowel "o".
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-13T12:24:03.537Z  
+**Submitted:** 2026-09-13T12:24:28.048Z  
 
 ```cpp
 class Solution {
