@@ -6,34 +6,46 @@ class Codechef
 {
 	public static void main (String[] args) throws java.lang.Exception
 	{
-		Scanner sc = new Scanner(System.in);
+		 Scanner sc = new Scanner(System.in);
 
-        int N = sc.nextInt();
         int M = sc.nextInt();
+        int N = sc.nextInt();
 
-        int[][] matrix = new int[N][M];
+        int[][] A = new int[M][N];
 
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < M; j++) {
-                matrix[i][j] = sc.nextInt();
+        for (int i = 0; i < M; i++) {
+            for (int j = 0; j < N; j++) {
+                A[i][j] = sc.nextInt();
             }
         }
 
-        int i = 0;
-        int j = M - 1;
-        int count = 0;
+        int N2 = sc.nextInt();
+        int P = sc.nextInt();
 
-        while (i < N && j >= 0) {
+        int[][] B = new int[N2][P];
 
-            if (matrix[i][j] < 0) {
-                count += N - i;
-                j--;
-            } else {
-                i++;
+        for (int i = 0; i < N2; i++) {
+            for (int j = 0; j < P; j++) {
+                B[i][j] = sc.nextInt();
             }
         }
 
-        System.out.println(count);
+        int[][] C = new int[M][P];
+
+        for (int i = 0; i < M; i++) {
+            for (int j = 0; j < P; j++) {
+                for (int k = 0; k < N; k++) {
+                    C[i][j] += A[i][k] * B[k][j];
+                }
+            }
+        }
+
+        for (int i = 0; i < M; i++) {
+            for (int j = 0; j < P; j++) {
+                System.out.print(C[i][j] + " ");
+            }
+            System.out.println();
+        }
 
         sc.close();
 
