@@ -13,7 +13,6 @@ class Codechef
 
         int[][] matrix = new int[n][m];
 
-        // Read matrix
         for (int i = 0; i < n; i++)
         {
             for (int j = 0; j < m; j++)
@@ -31,7 +30,6 @@ class Codechef
             int right = m - 1;
             int firstOne = m;
 
-            // Binary search for first 1
             while (left <= right)
             {
                 int mid = left + (right - left) / 2;
@@ -47,10 +45,8 @@ class Codechef
                 }
             }
 
-            // Number of 1s in this row
             int ones = m - firstOne;
 
-            // > ensures first row is selected in case of tie
             if (ones > maxOnes)
             {
                 maxOnes = ones;
