@@ -61,7 +61,7 @@ which has trace equal to $6 + 7 = 13$. (This submatrix is obtained for $r=2, c=1
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T06:29:11.077Z  
+**Submitted:** 2026-09-16T06:30:20.995Z  
 
 ```java
 import java.util.*;
@@ -72,7 +72,7 @@ class Codechef
 {
 	public static void main (String[] args) throws java.lang.Exception
 	{
-		 Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 
         int T = sc.nextInt();
 
@@ -80,36 +80,25 @@ class Codechef
         {
             int n = sc.nextInt();
 
-            int[][] mat = new int[n][n];
+            HashMap<Integer, Integer> map = new HashMap<>();
 
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n; j++)
                 {
-                    mat[i][j] = sc.nextInt();
+                    int value = sc.nextInt();
+
+                    int key = i - j;
+
+                    map.put(key, map.getOrDefault(key, 0) + value);
                 }
             }
 
             int maxTrace = 0;
 
-            for (int i = 0; i < n; i++)
+            for (int sum : map.values())
             {
-                for (int j = 0; j < n; j++)
-                {
-                    int sum = 0;
-
-                    int x = i;
-                    int y = j;
-
-                    while (x < n && y < n)
-                    {
-                        sum += mat[x][y];
-                        x++;
-                        y++;
-                    }
-
-                    maxTrace = Math.max(maxTrace, sum);
-                }
+                maxTrace = Math.max(maxTrace, sum);
             }
 
             System.out.println(maxTrace);
