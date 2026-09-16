@@ -55,7 +55,7 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T06:00:14.406Z  
+**Submitted:** 2026-09-16T06:00:47.964Z  
 
 ```java
 public static void rotateClockwise(int[][] matrix) {
