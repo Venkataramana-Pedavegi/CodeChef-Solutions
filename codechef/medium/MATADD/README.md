@@ -45,7 +45,7 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T05:35:28.267Z  
+**Submitted:** 2026-09-16T05:35:59.847Z  
 
 ```java
 import java.util.*;
@@ -58,27 +58,24 @@ class Codechef
 	{
         Scanner sc = new Scanner(System.in);
 
-        int N = sc.nextInt(); // rows
-        int M = sc.nextInt(); // columns
+        int N = sc.nextInt(); 
+        int M = sc.nextInt(); 
 
         int[][] A = new int[N][M];
         int[][] B = new int[N][M];
 
-        // Read first matrix
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < M; j++) {
                 A[i][j] = sc.nextInt();
             }
         }
 
-        // Read second matrix
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < M; j++) {
                 B[i][j] = sc.nextInt();
             }
         }
 
-        // Add and print matrices
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < M; j++) {
                 System.out.print((A[i][j] + B[i][j]) + " ");
