@@ -51,7 +51,7 @@ Row 3 and column 3 are equal.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T06:10:10.041Z  
+**Submitted:** 2026-09-16T06:10:20.512Z  
 
 ```java
 import java.util.*;
