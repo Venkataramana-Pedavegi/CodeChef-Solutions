@@ -42,7 +42,7 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T06:04:12.003Z  
+**Submitted:** 2026-09-16T06:05:06.883Z  
 
 ```java
 import java.util.*;
@@ -60,7 +60,6 @@ class Codechef
 
         int[][] matrix = new int[n][m];
 
-        // Read matrix
         for (int i = 0; i < n; i++)
         {
             for (int j = 0; j < m; j++)
@@ -78,7 +77,6 @@ class Codechef
             int right = m - 1;
             int firstOne = m;
 
-            // Binary search for first 1
             while (left <= right)
             {
                 int mid = left + (right - left) / 2;
@@ -94,10 +92,8 @@ class Codechef
                 }
             }
 
-            // Number of 1s in this row
             int ones = m - firstOne;
 
-            // > ensures first row is selected in case of tie
             if (ones > maxOnes)
             {
                 maxOnes = ones;
