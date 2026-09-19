@@ -63,11 +63,25 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-19T16:17:16.975Z  
+**Submitted:** 2026-09-19T16:18:45.377Z  
 
 ```java
 public static int[] findPair(int[] nums, int target) {
-    // Write your code here
+
+    HashMap<Integer, Integer> map = new HashMap<>();
+
+    for (int i = 0; i < nums.length; i++) {
+
+        int needed = target - nums[i];
+
+        if (map.containsKey(needed)) {
+            return new int[]{map.get(needed), i};
+        }
+
+        map.put(nums[i], i);
+    }
+
+    return new int[]{-1, -1};
 }
 ```
 
