@@ -2,74 +2,76 @@ import java.util.*;
 
 class Main {
 
-    static int n, m;
+    // Count elements <= x in one sorted row
+    static int countLessEqual(int[] row, int x) {
 
-    static int[] dr = {-1, 1, 0, 0};
-    static int[] dc = {0, 0, -1, 1};
+        int low = 0;
+        int high = row.length - 1;
+
+        while (low <= high) {
+
+            int mid = low + (high - low) / 2;
+
+            if (row[mid] <= x) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+
+        // low = number of elements <= x
+        return low;
+    }
 
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
 
-        n = sc.nextInt();
-        m = sc.nextInt();
+        int n = sc.nextInt();
+        int m = sc.nextInt();
 
         int[][] mat = new int[n][m];
-        int[][] dist = new int[n][m];
 
-        Queue<int[]> q = new LinkedList<>();
+        int low = Integer.MAX_VALUE;
+        int high = Integer.MIN_VALUE;
 
-        // Read matrix
         for (int i = 0; i < n; i++) {
+
             for (int j = 0; j < m; j++) {
 
                 mat[i][j] = sc.nextInt();
 
-                if (mat[i][j] == 0) {
-                    // All zeros are starting points
-                    q.offer(new int[]{i, j});
+                // Minimum element
+                low = Math.min(low, mat[i][j]);
 
-                    dist[i][j] = 0;
-                } else {
-                    // -1 means not visited
-                    dist[i][j] = -1;
-                }
+                // Maximum element
+                high = Math.max(high, mat[i][j]);
             }
         }
 
-        // Multi-source BFS
-        while (!q.isEmpty()) {
+        int required = (n * m) / 2 + 1;
 
-            int[] current = q.poll();
+        // Binary search on answer
+        while (low < high) {
 
-            int r = current[0];
-            int c = current[1];
+            int mid = low + (high - low) / 2;
 
-            // Check 4 directions
-            for (int d = 0; d < 4; d++) {
+            int count = 0;
 
-                int nr = r + dr[d];
-                int nc = c + dc[d];
+            // Count elements <= mid
+            for (int i = 0; i < n; i++) {
+                count += countLessEqual(mat[i], mid);
+            }
 
-                if (nr >= 0 && nr < n &&
-                    nc >= 0 && nc < m &&
-                    dist[nr][nc] == -1) {
-
-                    dist[nr][nc] = dist[r][c] + 1;
-
-                    q.offer(new int[]{nr, nc});
-                }
+            if (count < required) {
+                // Median is greater
+                low = mid + 1;
+            } else {
+                // Median can be mid or smaller
+                high = mid;
             }
         }
 
-        // Print answer
-        for (int i = 0; i < n; i++) {
-
-            for (int j = 0; j < m; j++) {
-                System.out.print(dist[i][j] + " ");
-            }
-
-            System.out.println();
-        }
+        System.out.println(low);
     }
 }
