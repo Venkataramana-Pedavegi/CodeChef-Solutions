@@ -4,36 +4,41 @@
 
 ## Problem
 
-### Distance to Nearest 0
+### Median in Matrix
 
-Given is a `N x M` binary matrix, for each cell find its distance from the nearest `0`.
+Given a `N x M` row-wise sorted matrix, find the median of the matrix. (*Note:*  `N*M` is always odd)
 
- **Note:**  Distance between vertically or horizontally adjacent cells is `1`. (See the sample input/output for more clarity)
+For eg., in the following matrix:
+
+If we place all elements in the sorter order: 2 3 4 4 4 5 6 6 7
+
+Then the median of the matrix is: `4`
+
+ **Follow up:**  Can you solve it in better time than  **O(NMlog(NM))**  and without taking extra space ?
 
 ### Input Format
-- The first line of input will contain two space separated integers $N$ and $M$, denoting the no. of rows and columns in the matrix.
-- Next $N$ lines containing $M$ space separated integers, the elements of the matrix.
+- The first line of input will contain two space separated integers $N$ and $M$, denoting the no. of rows and columns in the input matrix.
+- Next $N$ lines contains $M$ space separated integers, the elements of the matrix.
 ### Output Format
-- Output $N$ lines containing $M$ space separated integers, the distance of each cell from nearest 0.
+- Output on a single line, the median of the matrix.
 ### Constraints
 - $1 \leq N, M \leq 100$
-- The elements of the matrix are either 0 or 1.
-- There is at least one 0 in the matrix.
+- The elements of the matrix are non-negative and won't exceed $1000$.
+- The elements in each row are sorted in non-decreasing order.
+- N*M is always odd
 ### Sample 1:
 Input
 Output
 
 ```
 3 3
-0 1 1
-0 1 0
-1 1 1
+3 4 5
+2 4 6
+4 6 7
 ```
 
 ```
-0 1 1
-0 1 0
-1 2 1
+4
 ```
 
 ## Solution
@@ -41,82 +46,84 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-19T13:49:27.528Z  
+**Submitted:** 2026-09-19T13:50:23.007Z  
 
 ```java
 import java.util.*;
 
 class Main {
 
-    static int n, m;
+    // Count elements <= x in one sorted row
+    static int countLessEqual(int[] row, int x) {
 
-    static int[] dr = {-1, 1, 0, 0};
-    static int[] dc = {0, 0, -1, 1};
+        int low = 0;
+        int high = row.length - 1;
+
+        while (low <= high) {
+
+            int mid = low + (high - low) / 2;
+
+            if (row[mid] <= x) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+
+        // low = number of elements <= x
+        return low;
+    }
 
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
 
-        n = sc.nextInt();
-        m = sc.nextInt();
+        int n = sc.nextInt();
+        int m = sc.nextInt();
 
         int[][] mat = new int[n][m];
-        int[][] dist = new int[n][m];
 
-        Queue<int[]> q = new LinkedList<>();
+        int low = Integer.MAX_VALUE;
+        int high = Integer.MIN_VALUE;
 
-        // Read matrix
         for (int i = 0; i < n; i++) {
+
             for (int j = 0; j < m; j++) {
 
                 mat[i][j] = sc.nextInt();
 
-                if (mat[i][j] == 0) {
-                    // All zeros are starting points
-                    q.offer(new int[]{i, j});
+                // Minimum element
+                low = Math.min(low, mat[i][j]);
 
-                    dist[i][j] = 0;
-                } else {
-                    // -1 means not visited
-                    dist[i][j] = -1;
-                }
+                // Maximum element
+                high = Math.max(high, mat[i][j]);
             }
         }
 
-        // Multi-source BFS
-        while (!q.isEmpty()) {
+        int required = (n * m) / 2 + 1;
 
-            int[] current = q.poll();
+        // Binary search on answer
+        while (low < high) {
 
-            int r = current[0];
-            int c = current[1];
+            int mid = low + (high - low) / 2;
 
-            // Check 4 directions
-            for (int d = 0; d < 4; d++) {
+            int count = 0;
 
-                int nr = r + dr[d];
-                int nc = c + dc[d];
+            // Count elements <= mid
+            for (int i = 0; i < n; i++) {
+                count += countLessEqual(mat[i], mid);
+            }
 
-                if (nr >= 0 && nr < n &&
-                    nc >= 0 && nc < m &&
-                    dist[nr][nc] == -1) {
-
-                    dist[nr][nc] = dist[r][c] + 1;
-
-                    q.offer(new int[]{nr, nc});
-                }
+            if (count < required) {
+                // Median is greater
+                low = mid + 1;
+            } else {
+                // Median can be mid or smaller
+                high = mid;
             }
         }
 
-        // Print answer
-        for (int i = 0; i < n; i++) {
-
-            for (int j = 0; j < m; j++) {
-                System.out.print(dist[i][j] + " ");
-            }
-
-            System.out.println();
-        }
+        System.out.println(low);
     }
 }
 ```
