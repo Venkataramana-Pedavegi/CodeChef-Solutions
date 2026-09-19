@@ -1,0 +1,71 @@
+# Remove All Adjacent Duplicates In String
+
+![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
+
+## Problem
+
+You are given a string `s` consisting of lowercase English letters. A  **duplicate removal**  consists of choosing two  **adjacent**  and  **equal**  letters and removing them.
+
+We repeatedly make  **duplicate removals**  on `s` until we no longer can.
+
+Return  *the final string after all such duplicate removals have been made*. It can be proven that the answer is  **unique**.
+
+ 
+
+ **Example 1:** 
+
+```
+Input: s = "abbaca"
+Output: "ca"
+Explanation: 
+For example, in "abbaca" we could remove "bb" since the letters are adjacent and equal, and this is the only possible move.  The result of this move is that the string is "aaca", of which only "aa" is possible, so the final string is "ca".
+
+```
+
+ **Example 2:** 
+
+```
+Input: s = "azxxzy"
+Output: "ay"
+
+```
+
+ 
+
+ **Constraints:** 
+
+- 1 <= s.length <= 105
+- s consists of lowercase English letters.
+
+## Solution
+
+**Language:** Java  
+**Runtime:** 12 ms (beats 83.10%)  
+**Memory:** 47.5 MB (beats 19.89%)  
+**Submitted:** 2026-09-19T15:45:21.976Z  
+
+```java
+class Solution {
+    public String removeDuplicates(String s) {
+
+        StringBuilder stack = new StringBuilder();
+
+        for (char ch : s.toCharArray()) {
+
+            if (stack.length() > 0 &&
+                stack.charAt(stack.length() - 1) == ch) {
+                stack.deleteCharAt(stack.length() - 1);
+
+            } else {
+                stack.append(ch);
+            }
+        }
+
+        return stack.toString();
+    }
+}
+```
+
+---
+
+[View on LeetCode](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/)
