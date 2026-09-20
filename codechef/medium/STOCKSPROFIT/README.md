@@ -4,94 +4,71 @@
 
 ## Problem
 
-### Chef and Stock Profits
-
-Chef is observing stock prices.
-You are given an array $prices$ where $prices[i]$ is the price of a given stock on the $i^{\text{th}}$ day.
-Chef wants to maximize his profit by choosing  **one day to buy**  and a  **different future day to sell**.
-
-Return the  **maximum profit**  Chef can achieve. If no profit is possible, return $0$.
-
-## Function Declaration
-### Function Name
-
-$findMaxProfit$ – Computes the maximum achievable profit by buying on one day and selling on a later day.
-
-### Parameters
-- $prices$ : A list/array of integers where $prices[i]$ = stock price on day $i$.
-### Return Value
-- Returns an integer — the maximum profit Chef can make. If no profitable transaction is possible, return $0$.
-## Constraints:
-- $2 \leq n \leq 10^5$
-- $0 \leq prices[i] \leq 10^4$
-### Input Format
-- $n$ → number of days
-- Next line → n integers representing stock prices
-### Output Format
-
-Print the maximum profit Chef can achieve.
-
-### Sample 1:
-Input
-Output
-
-```
-7
-2 4 1 7 5 3 6
-
-```
-
-```
-6
-
-```
-
-### Explanation:
-
- **Buy**  on day 3 (price = 1) and  **sell**  on day 4 (price = 7). Profit = 7 - 1 = 6.
-
-### Sample 2:
-Input
-Output
-
-```
-8
-9 8 7 6 5 4 3 2
-
-```
-
-```
-0
-
-```
-
-### Explanation:
-
-Prices keep falling, so no profit can be made.
+_Description not available._
 
 ## Solution
 
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-20T14:09:55.304Z  
+**Submitted:** 2026-09-20T14:08:47.646Z  
 
 ```java
-public static int findMaxProfit(int[] prices) {
+public static List<Long> findSuperstarDishes(List<Long> a, int n) {
 
-    int minPrice = prices[0];
-    int maxProfit = 0;
+    long candidate1 = 0;
+    long candidate2 = 0;
 
-    for (int i = 1; i < prices.length; i++) {
+    int count1 = 0;
+    int count2 = 0;
 
-        int profit = prices[i] - minPrice;
+    for (long num : a) {
 
-        maxProfit = Math.max(maxProfit, profit);
-
-        minPrice = Math.min(minPrice, prices[i]);
+        if (num == candidate1) {
+            count1++;
+        }
+        else if (num == candidate2) {
+            count2++;
+        }
+        else if (count1 == 0) {
+            candidate1 = num;
+            count1 = 1;
+        }
+        else if (count2 == 0) {
+            candidate2 = num;
+            count2 = 1;
+        }
+        else {
+            count1--;
+            count2--;
+        }
     }
 
-    return maxProfit;
+    count1 = 0;
+    count2 = 0;
+
+    for (long num : a) {
+        if (num == candidate1) {
+            count1++;
+        }
+        else if (num == candidate2) {
+            count2++;
+        }
+    }
+
+    List<Long> result = new ArrayList<>();
+
+    if (count1 > n / 3) {
+        result.add(candidate1);
+    }
+
+    if (count2 > n / 3) {
+        result.add(candidate2);
+    }
+
+    Collections.sort(result);
+
+    return result;
 }
 ```
 
