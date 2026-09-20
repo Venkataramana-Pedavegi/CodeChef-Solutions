@@ -82,7 +82,7 @@ Here,  **n = 7**, so `[n/3]` = 2.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-20T14:08:34.457Z  
+**Submitted:** 2026-09-20T14:08:44.335Z  
 
 ```java
 public static List<Long> findSuperstarDishes(List<Long> a, int n) {
