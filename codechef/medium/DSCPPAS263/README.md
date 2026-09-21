@@ -4,86 +4,89 @@
 
 ## Problem
 
-### Valid Matrix Sum
+### Count Negative Numbers
 
-You are given an integer $n$ and $m$, representing the dimensions of an $n×m$ matrix. You need to construct an $n×m$ matrix such that the following properties are satisfied:
+Given a `N x M` matrix which is sorted in non-increasing order both row-wise and column-wise, count the number of negative numbers in matrix.
 
-- Each element in the matrix is 1.
-- The sum of the elements of the matrix is even.
+For eg, in the following matrix:
 
-If it is not possible then print $-1$.
+There are total `6` negative numbers.
+
+ *Note:*  It's easy to solve this problem in  **O(N*M)**  time, can you do it in  **O(N + M)** ?
 
 ### Input Format
-- The first line contains one integer $n$ and $m$, the size of the matrix.
+- The first line of input contains two space separated integers $N$ and $M$, denoting the no. of rows and columns in input matrix
+- Next $N$ lines contains $M$ space separated integers, the elements of the matrix.
 ### Output Format
-- Print a 2d matrix with given properties or $-1$.
+- Output on a single line, the count of negative integers in the given matrix.
 ### Constraints
-- $1 \leq n, m \leq 100$
+- $1 \leq N, M \leq 100$
+- The absolute value of the matrix's elements doesn't exceed $100000$.
 ### Sample 1:
 Input
 Output
 
 ```
-2 2
-```
+3 4
+8 7 6 -1
+7 7 -1 -2
+4 -5 -6 -7
 
-```
-1 1
-1 1
-```
-
-### Explanation:
-
-The sum of elements of the matrix is 4 which is even.
-
-### Sample 2:
-Input
-Output
-
-```
-1 1
 ```
 
 ```
--1
+6
 ```
-
-### Explanation:
-
-No such matrix is possible.
 
 ## Solution
 
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T05:47:31.697Z  
+**Submitted:** 2026-09-21T16:33:36.694Z  
 
 ```java
-import java.util.Scanner;
+import java.util.*;
 
-public class Main {
+class Main {
     public static void main(String[] args) {
-         Scanner sc = new Scanner(System.in);
+
+        Scanner sc = new Scanner(System.in);
 
         int n = sc.nextInt();
         int m = sc.nextInt();
 
-        if ((n * m) % 2 != 0) {
-            System.out.println(-1);
-        } else {
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < m; j++) {
-                    System.out.print("1");
-                    if (j < m - 1) {
-                        System.out.print(" ");
-                    }
-                }
-                System.out.println();
+        int[][] matrix = new int[n][m];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                matrix[i][j] = sc.nextInt();
             }
         }
 
-        sc.close();
+        int row = 0;
+        int col = m - 1;
+        int count = 0;
+
+        while (row < n && col >= 0) {
+
+            if (matrix[row][col] < 0) {
+
+                // Everything below this element in this column
+                // is also negative.
+                count += n - row;
+
+                col--;
+
+            } else {
+
+                // Current element is non-negative.
+                // Move down to find negatives.
+                row++;
+            }
+        }
+
+        System.out.println(count);
     }
 }
 ```
