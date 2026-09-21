@@ -1,53 +1,25 @@
 import java.util.*;
-import java.lang.*;
-import java.io.*;
 
-class Codechef
-{
-	public static void main (String[] args) throws java.lang.Exception
-	{
-		 Scanner sc = new Scanner(System.in);
+class Main {
+    public static void main(String[] args) {
 
-        int M = sc.nextInt();
-        int N = sc.nextInt();
+        Scanner sc = new Scanner(System.in);
 
-        int[][] A = new int[M][N];
+        int n = sc.nextInt();
+        int m = sc.nextInt();
 
-        for (int i = 0; i < M; i++) {
-            for (int j = 0; j < N; j++) {
-                A[i][j] = sc.nextInt();
-            }
+        if ((n * m) % 2 != 0) {
+            System.out.println(-1);
+            return;
         }
 
-        int N2 = sc.nextInt();
-        int P = sc.nextInt();
+        for (int i = 0; i < n; i++) {
 
-        int[][] B = new int[N2][P];
-
-        for (int i = 0; i < N2; i++) {
-            for (int j = 0; j < P; j++) {
-                B[i][j] = sc.nextInt();
+            for (int j = 0; j < m; j++) {
+                System.out.print("1 ");
             }
-        }
 
-        int[][] C = new int[M][P];
-
-        for (int i = 0; i < M; i++) {
-            for (int j = 0; j < P; j++) {
-                for (int k = 0; k < N; k++) {
-                    C[i][j] += A[i][k] * B[k][j];
-                }
-            }
-        }
-
-        for (int i = 0; i < M; i++) {
-            for (int j = 0; j < P; j++) {
-                System.out.print(C[i][j] + " ");
-            }
             System.out.println();
         }
-
-        sc.close();
-
-	}
+    }
 }
