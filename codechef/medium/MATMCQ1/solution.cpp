@@ -1,32 +1,31 @@
 import java.util.*;
-import java.lang.*;
-import java.io.*;
 
-class Codechef
-{
-	public static void main (String[] args) throws java.lang.Exception
-	{
+class Main {
+    public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
 
-        int N = sc.nextInt();
+        int n = sc.nextInt();
 
-        int[][] matrix = new int[N][N];
+        int[][] matrix = new int[n][n];
 
-        int num = 1;
+        int value = 1;
 
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                matrix[i][j] = num++;
+        for (int i = 0; i < n; i++) {
+
+            for (int j = 0; j < n; j++) {
+
+                matrix[i][j] = value;
+                value++;
             }
         }
 
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
+        for (int i = 0; i < n; i++) {
+
+            for (int j = 0; j < n; j++) {
+
                 System.out.print(matrix[i][j] + " ");
             }
-            System.out.println();
         }
-
-        sc.close();
-	}
+    }
 }
