@@ -1,39 +1,39 @@
 import java.util.*;
-import java.lang.*;
-import java.io.*;
 
-class Codechef
-{
-	public static void main (String[] args) throws java.lang.Exception
-	{
-		 Scanner sc = new Scanner(System.in);
+class Main {
+    public static void main(String[] args) {
 
-        int N = sc.nextInt();
-        int M = sc.nextInt();
+        Scanner sc = new Scanner(System.in);
 
-        int[][] matrix = new int[N][M];
+        int n = sc.nextInt();
+        int m = sc.nextInt();
 
-        
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < M; j++) {
+        int[][] matrix = new int[n][m];
+
+        // Input matrix
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
                 matrix[i][j] = sc.nextInt();
             }
         }
 
-        for (int i = 0; i < N; i++) {
+        // Zig-zag traversal
+        for (int i = 0; i < n; i++) {
 
             if (i % 2 == 0) {
-                for (int j = 0; j < M; j++) {
+
+                // Even row → left to right
+                for (int j = 0; j < m; j++) {
                     System.out.print(matrix[i][j] + " ");
                 }
+
             } else {
-                for (int j = M - 1; j >= 0; j--) {
+
+                // Odd row → right to left
+                for (int j = m - 1; j >= 0; j--) {
                     System.out.print(matrix[i][j] + " ");
                 }
             }
         }
-
-        sc.close();
-
-	}
+    }
 }
