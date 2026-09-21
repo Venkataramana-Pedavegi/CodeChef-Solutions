@@ -40,45 +40,43 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T05:40:31.761Z  
+**Submitted:** 2026-09-21T16:32:25.631Z  
 
 ```java
 import java.util.*;
-import java.lang.*;
-import java.io.*;
 
-class Codechef
-{
-	public static void main (String[] args) throws java.lang.Exception
-	{
-		Scanner sc = new Scanner(System.in);
+class Main {
+    public static void main(String[] args) {
 
-        int N = sc.nextInt();
-        int[][] matrix = new int[N][N];
+        Scanner sc = new Scanner(System.in);
 
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
+        int n = sc.nextInt();
+
+        int[][] matrix = new int[n][n];
+
+        // Input matrix
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
                 matrix[i][j] = sc.nextInt();
             }
         }
 
         int sum = 0;
 
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
+
+            // Primary diagonal
             sum += matrix[i][i];
 
-            if (i != N - 1 - i) {
-                sum += matrix[i][N - 1 - i];
+            // Secondary diagonal
+            if (i != n - 1 - i) {
+                sum += matrix[i][n - 1 - i];
             }
         }
 
         System.out.println(sum);
-
-        sc.close();
-
-	}
+    }
 }
-
 ```
 
 ---
