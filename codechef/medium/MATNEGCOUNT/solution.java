@@ -1,41 +1,43 @@
 import java.util.*;
-import java.lang.*;
-import java.io.*;
 
-class Codechef
-{
-	public static void main (String[] args) throws java.lang.Exception
-	{
-		Scanner sc = new Scanner(System.in);
+class Main {
+    public static void main(String[] args) {
 
-        int N = sc.nextInt();
-        int M = sc.nextInt();
+        Scanner sc = new Scanner(System.in);
 
-        int[][] matrix = new int[N][M];
+        int n = sc.nextInt();
+        int m = sc.nextInt();
 
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < M; j++) {
+        int[][] matrix = new int[n][m];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
                 matrix[i][j] = sc.nextInt();
             }
         }
 
-        int i = 0;
-        int j = M - 1;
+        int row = 0;
+        int col = m - 1;
         int count = 0;
 
-        while (i < N && j >= 0) {
+        while (row < n && col >= 0) {
 
-            if (matrix[i][j] < 0) {
-                count += N - i;
-                j--;
+            if (matrix[row][col] < 0) {
+
+                // Everything below this element in this column
+                // is also negative.
+                count += n - row;
+
+                col--;
+
             } else {
-                i++;
+
+                // Current element is non-negative.
+                // Move down to find negatives.
+                row++;
             }
         }
 
         System.out.println(count);
-
-        sc.close();
-
-	}
+    }
 }
