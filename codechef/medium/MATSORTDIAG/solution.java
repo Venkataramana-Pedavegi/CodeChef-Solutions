@@ -1,55 +1,59 @@
-import java.util.Scanner;
-import java.util.HashMap;
-import java.util.PriorityQueue;
+import java.util.*;
 
-public class Main {
-    public static int[][] diagonalSort(int[][] mat) {
-        int row = mat.length, col = mat[0].length;
-        HashMap<Integer, PriorityQueue<Integer>> d = new HashMap<>();
-        
-        // Group elements by their diagonal key (i - j)
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
-                int key = i - j;
-                if (!d.containsKey(key)) {
-                    d.put(key, new PriorityQueue<>());
-                }
-                d.get(key).offer(mat[i][j]);
-            }
-        }
-        
-        // Put the sorted elements back into the matrix
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
-                int key = i - j;
-                mat[i][j] = d.get(key).poll();
-            }
-        }
-        
-        return mat;
-    }
-
+class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        int n = scanner.nextInt();
-        int m = scanner.nextInt();
+        Scanner sc = new Scanner(System.in);
 
-        int[][] mat = new int[n][m];
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                mat[i][j] = scanner.nextInt();
+        // Dimensions of first matrix
+        int M = sc.nextInt();
+        int N = sc.nextInt();
+
+        int[][] A = new int[M][N];
+
+        // Input first matrix
+        for (int i = 0; i < M; i++) {
+            for (int j = 0; j < N; j++) {
+                A[i][j] = sc.nextInt();
             }
         }
 
-        mat = diagonalSort(mat);
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                System.out.print(mat[i][j] + " ");
+        // Dimensions of second matrix
+        int N2 = sc.nextInt();
+        int P = sc.nextInt();
+
+        int[][] B = new int[N2][P];
+
+        // Input second matrix
+        for (int i = 0; i < N2; i++) {
+            for (int j = 0; j < P; j++) {
+                B[i][j] = sc.nextInt();
             }
+        }
+
+        // Result matrix: M × P
+        int[][] C = new int[M][P];
+
+        // Matrix multiplication
+        for (int i = 0; i < M; i++) {
+
+            for (int j = 0; j < P; j++) {
+
+                for (int k = 0; k < N; k++) {
+
+                    C[i][j] += A[i][k] * B[k][j];
+                }
+            }
+        }
+
+        // Print result
+        for (int i = 0; i < M; i++) {
+
+            for (int j = 0; j < P; j++) {
+                System.out.print(C[i][j] + " ");
+            }
+
             System.out.println();
         }
-        
-        scanner.close();
     }
 }
