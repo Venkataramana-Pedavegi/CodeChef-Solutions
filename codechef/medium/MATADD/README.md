@@ -45,49 +45,47 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T05:35:59.847Z  
+**Submitted:** 2026-09-21T16:29:19.383Z  
 
 ```java
 import java.util.*;
-import java.lang.*;
-import java.io.*;
 
-class Codechef
-{
-	public static void main (String[] args) throws java.lang.Exception
-	{
+class Main {
+    public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
 
-        int N = sc.nextInt(); 
-        int M = sc.nextInt(); 
+        int n = sc.nextInt(); // rows
+        int m = sc.nextInt(); // columns
 
-        int[][] A = new int[N][M];
-        int[][] B = new int[N][M];
+        int[][] a = new int[n][m];
+        int[][] b = new int[n][m];
 
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < M; j++) {
-                A[i][j] = sc.nextInt();
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                a[i][j] = sc.nextInt();
             }
         }
 
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < M; j++) {
-                B[i][j] = sc.nextInt();
+        // Read second matrix
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                b[i][j] = sc.nextInt();
             }
         }
 
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < M; j++) {
-                System.out.print((A[i][j] + B[i][j]) + " ");
+        // Add and print
+        for (int i = 0; i < n; i++) {
+
+            for (int j = 0; j < m; j++) {
+
+                System.out.print((a[i][j] + b[i][j]) + " ");
             }
+
             System.out.println();
         }
-
-        sc.close();
-    
-	}
+    }
 }
-
 ```
 
 ---
