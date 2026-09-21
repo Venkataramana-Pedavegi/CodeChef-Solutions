@@ -4,33 +4,61 @@
 
 ## Problem
 
-### Sort Matrix Diagonally
+### Brute Force- Multiplication of Two Matrices
 
-Given a `N x M` matrix, sort its elements diagonally. For eg. see the following matrix and its diagonal sorting:
+Matrix multiplication involves combining the rows of the first matrix with the columns of the second matrix to produce a new matrix. Specifically, let's say we have two matrices A and B, where A has dimensions  **M x N**  (M rows, N columns), and B has dimensions  **N x P**  (N rows, P columns). The resulting matrix C from the multiplication, denoted as C = A * B, will have dimensions  **M x P**.
+
+To compute the element at position C[i][j] in the resulting matrix C, we take the dot product of the $i^{\text{th}}$ row of matrix A and the $j^{\text{th}}$ column of matrix B.
+
+Mathematically, if A is represented as:
+
+A = [[a11, a12,..., a1n], [a21, a22,..., a2n],..., [am1, am2,..., amn]]
+
+and B is represented as:
+
+B = [[b11, b12,..., b1p], [b21, b22,..., b2p],..., [bn1, bn2,..., bnp]]
+
+then the resulting matrix C is calculated as:
+
+C = [[c11, c12,..., c1p], [c21, c22,..., c2p],..., [cm1, cm2,..., cmp]]
+
+where each element cij in matrix C is computed as:
+
+cij = a[i][1] *b[1][j] + a[i][2]* b[2][j] +... + a[i][n]*b[n][j]
+
+In other words, each element cij in the resulting matrix C is obtained by multiplying the corresponding elements of the ith row of matrix A with the corresponding elements of the jth column of matrix B and summing up the products.
+
+For eg, see the multiplication of following two matrices:
 
 ### Input Format
-- The first line of input will contain two space separated integers $N$ and $M$, denoting the no. of rows and columns in the input matrix.
-- Next $N$ lines contains $M$ space separated integers, the elements of the matrix.
+- The first line of input will contain two space separated integers $M$ and $N$, denoting the number of rows and columns of the first matrix.
+- Next $M$ lines contains $N$ space separated integers, the elements of first matrix.
+- Next line contain two space separated integers $N$ and $P$, denoting the number of rows and columns of the second matrix.
+- Next $N$ lines contains $P$ space separated integers, the elements of second matrix.
 ### Output Format
-- Output $N$ lines, each containing $M$ space separated integers, the elements of diagonally sorted matrix.
+
+Output $M$ lines, each containing $P$ space separated integers, the elements of multiplication matrix of first and second input matrices.
+
 ### Constraints
-- $1 \leq N, M \leq 100$
-- The elements of the matrix are non-negative and won't exceed $1000$.
+- $1 \leq N, M, P \leq 100$
+- The elements of both the matrices are non-negative and won't exceed $1000$.
 ### Sample 1:
 Input
 Output
 
 ```
-3 3
-3 1 5
-8 2 1
-4 6 0
+2 3
+2 3 4
+4 5 6
+3 2
+1 2
+3 4
+2 2
 ```
 
 ```
-0 1 5
-6 2 1
-4 8 3
+19 24 
+31 40 
 ```
 
 ## Solution
@@ -38,62 +66,66 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T05:51:40.345Z  
+**Submitted:** 2026-09-21T16:35:36.755Z  
 
 ```java
-import java.util.Scanner;
-import java.util.HashMap;
-import java.util.PriorityQueue;
+import java.util.*;
 
-public class Main {
-    public static int[][] diagonalSort(int[][] mat) {
-        int row = mat.length, col = mat[0].length;
-        HashMap<Integer, PriorityQueue<Integer>> d = new HashMap<>();
-        
-        // Group elements by their diagonal key (i - j)
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
-                int key = i - j;
-                if (!d.containsKey(key)) {
-                    d.put(key, new PriorityQueue<>());
-                }
-                d.get(key).offer(mat[i][j]);
-            }
-        }
-        
-        // Put the sorted elements back into the matrix
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
-                int key = i - j;
-                mat[i][j] = d.get(key).poll();
-            }
-        }
-        
-        return mat;
-    }
-
+class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        int n = scanner.nextInt();
-        int m = scanner.nextInt();
+        Scanner sc = new Scanner(System.in);
 
-        int[][] mat = new int[n][m];
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                mat[i][j] = scanner.nextInt();
+        // Dimensions of first matrix
+        int M = sc.nextInt();
+        int N = sc.nextInt();
+
+        int[][] A = new int[M][N];
+
+        // Input first matrix
+        for (int i = 0; i < M; i++) {
+            for (int j = 0; j < N; j++) {
+                A[i][j] = sc.nextInt();
             }
         }
 
-        mat = diagonalSort(mat);
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                System.out.print(mat[i][j] + " ");
+        // Dimensions of second matrix
+        int N2 = sc.nextInt();
+        int P = sc.nextInt();
+
+        int[][] B = new int[N2][P];
+
+        // Input second matrix
+        for (int i = 0; i < N2; i++) {
+            for (int j = 0; j < P; j++) {
+                B[i][j] = sc.nextInt();
             }
+        }
+
+        // Result matrix: M × P
+        int[][] C = new int[M][P];
+
+        // Matrix multiplication
+        for (int i = 0; i < M; i++) {
+
+            for (int j = 0; j < P; j++) {
+
+                for (int k = 0; k < N; k++) {
+
+                    C[i][j] += A[i][k] * B[k][j];
+                }
+            }
+        }
+
+        // Print result
+        for (int i = 0; i < M; i++) {
+
+            for (int j = 0; j < P; j++) {
+                System.out.print(C[i][j] + " ");
+            }
+
             System.out.println();
         }
-        
-        scanner.close();
     }
 }
 ```
