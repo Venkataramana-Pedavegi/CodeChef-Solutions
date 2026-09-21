@@ -4,46 +4,60 @@
 
 ## Problem
 
-### Count Negative Numbers
+### Valid Matrix Sum
 
-Given a `N x M` matrix which is sorted in non-increasing order both row-wise and column-wise, count the number of negative numbers in matrix.
+You are given an integer $n$ and $m$, representing the dimensions of an $n×m$ matrix. You need to construct an $n×m$ matrix such that the following properties are satisfied:
 
-For eg, in the following matrix:
+- Each element in the matrix is 1.
+- The sum of the elements of the matrix is even.
 
-There are total `6` negative numbers.
-
- *Note:*  It's easy to solve this problem in  **O(N*M)**  time, can you do it in  **O(N + M)** ?
+If it is not possible then print $-1$.
 
 ### Input Format
-- The first line of input contains two space separated integers $N$ and $M$, denoting the no. of rows and columns in input matrix
-- Next $N$ lines contains $M$ space separated integers, the elements of the matrix.
+- The first line contains one integer $n$ and $m$, the size of the matrix.
 ### Output Format
-- Output on a single line, the count of negative integers in the given matrix.
+- Print a 2d matrix with given properties or $-1$.
 ### Constraints
-- $1 \leq N, M \leq 100$
-- The absolute value of the matrix's elements doesn't exceed $100000$.
+- $1 \leq n, m \leq 100$
 ### Sample 1:
 Input
 Output
 
 ```
-3 4
-8 7 6 -1
-7 7 -1 -2
-4 -5 -6 -7
-
+2 2
 ```
 
 ```
-6
+1 1
+1 1
 ```
+
+### Explanation:
+
+The sum of elements of the matrix is 4 which is even.
+
+### Sample 2:
+Input
+Output
+
+```
+1 1
+```
+
+```
+-1
+```
+
+### Explanation:
+
+No such matrix is possible.
 
 ## Solution
 
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-21T16:33:36.694Z  
+**Submitted:** 2026-09-21T16:34:26.785Z  
 
 ```java
 import java.util.*;
@@ -56,37 +70,19 @@ class Main {
         int n = sc.nextInt();
         int m = sc.nextInt();
 
-        int[][] matrix = new int[n][m];
+        if ((n * m) % 2 != 0) {
+            System.out.println(-1);
+            return;
+        }
 
         for (int i = 0; i < n; i++) {
+
             for (int j = 0; j < m; j++) {
-                matrix[i][j] = sc.nextInt();
+                System.out.print("1 ");
             }
+
+            System.out.println();
         }
-
-        int row = 0;
-        int col = m - 1;
-        int count = 0;
-
-        while (row < n && col >= 0) {
-
-            if (matrix[row][col] < 0) {
-
-                // Everything below this element in this column
-                // is also negative.
-                count += n - row;
-
-                col--;
-
-            } else {
-
-                // Current element is non-negative.
-                // Move down to find negatives.
-                row++;
-            }
-        }
-
-        System.out.println(count);
     }
 }
 ```
