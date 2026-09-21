@@ -4,125 +4,87 @@
 
 ## Problem
 
-### Brute Force- Multiplication of Two Matrices
+### Valid Matrix Sum
 
-Matrix multiplication involves combining the rows of the first matrix with the columns of the second matrix to produce a new matrix. Specifically, let's say we have two matrices A and B, where A has dimensions  **M x N**  (M rows, N columns), and B has dimensions  **N x P**  (N rows, P columns). The resulting matrix C from the multiplication, denoted as C = A * B, will have dimensions  **M x P**.
+You are given an integer $n$ and $m$, representing the dimensions of an $n×m$ matrix. You need to construct an $n×m$ matrix such that the following properties are satisfied:
 
-To compute the element at position C[i][j] in the resulting matrix C, we take the dot product of the $i^{\text{th}}$ row of matrix A and the $j^{\text{th}}$ column of matrix B.
+- Each element in the matrix is 1.
+- The sum of the elements of the matrix is even.
 
-Mathematically, if A is represented as:
-
-A = [[a11, a12,..., a1n], [a21, a22,..., a2n],..., [am1, am2,..., amn]]
-
-and B is represented as:
-
-B = [[b11, b12,..., b1p], [b21, b22,..., b2p],..., [bn1, bn2,..., bnp]]
-
-then the resulting matrix C is calculated as:
-
-C = [[c11, c12,..., c1p], [c21, c22,..., c2p],..., [cm1, cm2,..., cmp]]
-
-where each element cij in matrix C is computed as:
-
-cij = a[i][1] *b[1][j] + a[i][2]* b[2][j] +... + a[i][n]*b[n][j]
-
-In other words, each element cij in the resulting matrix C is obtained by multiplying the corresponding elements of the ith row of matrix A with the corresponding elements of the jth column of matrix B and summing up the products.
-
-For eg, see the multiplication of following two matrices:
+If it is not possible then print $-1$.
 
 ### Input Format
-- The first line of input will contain two space separated integers $M$ and $N$, denoting the number of rows and columns of the first matrix.
-- Next $M$ lines contains $N$ space separated integers, the elements of first matrix.
-- Next line contain two space separated integers $N$ and $P$, denoting the number of rows and columns of the second matrix.
-- Next $N$ lines contains $P$ space separated integers, the elements of second matrix.
+- The first line contains one integer $n$ and $m$, the size of the matrix.
 ### Output Format
-
-Output $M$ lines, each containing $P$ space separated integers, the elements of multiplication matrix of first and second input matrices.
-
+- Print a 2d matrix with given properties or $-1$.
 ### Constraints
-- $1 \leq N, M, P \leq 100$
-- The elements of both the matrices are non-negative and won't exceed $1000$.
+- $1 \leq n, m \leq 100$
 ### Sample 1:
 Input
 Output
 
 ```
-2 3
-2 3 4
-4 5 6
-3 2
-1 2
-3 4
 2 2
 ```
 
 ```
-19 24 
-31 40 
+1 1
+1 1
 ```
+
+### Explanation:
+
+The sum of elements of the matrix is 4 which is even.
+
+### Sample 2:
+Input
+Output
+
+```
+1 1
+```
+
+```
+-1
+```
+
+### Explanation:
+
+No such matrix is possible.
 
 ## Solution
 
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T05:46:11.701Z  
+**Submitted:** 2026-09-21T16:34:26.815Z  
 
 ```java
 import java.util.*;
-import java.lang.*;
-import java.io.*;
 
-class Codechef
-{
-	public static void main (String[] args) throws java.lang.Exception
-	{
-		 Scanner sc = new Scanner(System.in);
+class Main {
+    public static void main(String[] args) {
 
-        int M = sc.nextInt();
-        int N = sc.nextInt();
+        Scanner sc = new Scanner(System.in);
 
-        int[][] A = new int[M][N];
+        int n = sc.nextInt();
+        int m = sc.nextInt();
 
-        for (int i = 0; i < M; i++) {
-            for (int j = 0; j < N; j++) {
-                A[i][j] = sc.nextInt();
-            }
+        if ((n * m) % 2 != 0) {
+            System.out.println(-1);
+            return;
         }
 
-        int N2 = sc.nextInt();
-        int P = sc.nextInt();
+        for (int i = 0; i < n; i++) {
 
-        int[][] B = new int[N2][P];
-
-        for (int i = 0; i < N2; i++) {
-            for (int j = 0; j < P; j++) {
-                B[i][j] = sc.nextInt();
+            for (int j = 0; j < m; j++) {
+                System.out.print("1 ");
             }
-        }
 
-        int[][] C = new int[M][P];
-
-        for (int i = 0; i < M; i++) {
-            for (int j = 0; j < P; j++) {
-                for (int k = 0; k < N; k++) {
-                    C[i][j] += A[i][k] * B[k][j];
-                }
-            }
-        }
-
-        for (int i = 0; i < M; i++) {
-            for (int j = 0; j < P; j++) {
-                System.out.print(C[i][j] + " ");
-            }
             System.out.println();
         }
-
-        sc.close();
-
-	}
+    }
 }
-
 ```
 
 ---
