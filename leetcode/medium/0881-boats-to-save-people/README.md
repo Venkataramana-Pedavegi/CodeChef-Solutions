@@ -47,30 +47,24 @@ Explanation: 4 boats (3), (3), (4), (5)
 ## Solution
 
 **Language:** Java  
-**Runtime:** 21 ms (beats 22.65%)  
+**Runtime:** 20 ms (beats 81.77%)  
 **Memory:** 56.4 MB (beats 57.55%)  
-**Submitted:** 2026-09-22T15:56:49.324Z  
+**Submitted:** 2026-09-22T16:19:31.804Z  
 
 ```java
 class Solution {
     public int numRescueBoats(int[] people, int limit) {
-
         Arrays.sort(people);
-
-        int left = 0;
+         int left = 0;
         int right = people.length - 1;
         int boats = 0;
-
         while (left <= right) {
-
             if (people[left] + people[right] <= limit) {
                 left++;
             }
-
             right--;
             boats++;
         }
-
         return boats;
     }
 }
