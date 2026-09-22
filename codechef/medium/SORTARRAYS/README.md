@@ -74,7 +74,7 @@ Array is rearranged so that `0`’s come first, followed by 1’s, then 2’s.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-20T14:12:46.175Z  
+**Submitted:** 2026-09-22T16:16:20.593Z  
 
 ```java
 public static void sortColors(int[] nums) {
@@ -99,7 +99,7 @@ public static void sortColors(int[] nums) {
             mid++;
         }
 
-        else { // nums[mid] == 2
+        else {
 
             int temp = nums[mid];
             nums[mid] = nums[high];
