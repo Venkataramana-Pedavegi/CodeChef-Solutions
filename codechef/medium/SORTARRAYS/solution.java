@@ -20,7 +20,7 @@ public static void sortColors(int[] nums) {
             mid++;
         }
 
-        else { // nums[mid] == 2
+        else {
 
             int temp = nums[mid];
             nums[mid] = nums[high];
