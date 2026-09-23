@@ -66,7 +66,7 @@ Chef can work on minutes $1, 2, 4, 5, 7$ to put up the net; so the answer is $7$
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-23T14:53:43.205Z  
+**Submitted:** 2026-09-23T14:54:33.340Z  
 
 ```java
 import java.util.*;
@@ -75,13 +75,25 @@ import java.io.*;
 
 class Codechef
 {
-	public static void main (String[] args) throws java.lang.Exception
-	{
-		// your code goes here
+    public static void main (String[] args) throws java.lang.Exception
+    {
+        Scanner sc = new Scanner(System.in);
 
-	}
+        int T = sc.nextInt();
+
+        while (T-- > 0)
+        {
+            int N = sc.nextInt();
+            int K = sc.nextInt();
+
+            int answer = N + (N - 1) / (K - 1);
+
+            System.out.println(answer);
+        }
+
+        sc.close();
+    }
 }
-
 ```
 
 ---
