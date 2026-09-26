@@ -4,20 +4,19 @@ import java.io.*;
 
 class Codechef
 {
-	public static void main (String[] args) throws java.lang.Exception
-	{
-		 Scanner sc = new Scanner(System.in);
+    public static void main (String[] args) throws java.lang.Exception
+    {
+        Scanner sc = new Scanner(System.in);
 
         int n = sc.nextInt();
         int m = sc.nextInt();
 
-        int[][] mat = new int[n][m];
+        int[][] matrix = new int[n][m];
 
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = 0; j < m; j++)
-            {
-                mat[i][j] = sc.nextInt();
+        // Input matrix
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                matrix[i][j] = sc.nextInt();
             }
         }
 
@@ -26,40 +25,37 @@ class Codechef
         int left = 0;
         int right = m - 1;
 
-        while (top <= bottom && left <= right)
-        {
-            for (int j = left; j <= right; j++)
-            {
-                System.out.print(mat[top][j] + " ");
+        while (top <= bottom && left <= right) {
+
+            // Left to Right
+            for (int j = left; j <= right; j++) {
+                System.out.print(matrix[top][j] + " ");
             }
             top++;
 
-            for (int i = top; i <= bottom; i++)
-            {
-                System.out.print(mat[i][right] + " ");
+            // Top to Bottom
+            for (int i = top; i <= bottom; i++) {
+                System.out.print(matrix[i][right] + " ");
             }
             right--;
 
-            if (top <= bottom)
-            {
-                for (int j = right; j >= left; j--)
-                {
-                    System.out.print(mat[bottom][j] + " ");
+            // Right to Left
+            if (top <= bottom) {
+                for (int j = right; j >= left; j--) {
+                    System.out.print(matrix[bottom][j] + " ");
                 }
                 bottom--;
             }
 
-            if (left <= right)
-            {
-                for (int i = bottom; i >= top; i--)
-                {
-                    System.out.print(mat[i][left] + " ");
+            // Bottom to Top
+            if (left <= right) {
+                for (int i = bottom; i >= top; i--) {
+                    System.out.print(matrix[i][left] + " ");
                 }
                 left++;
             }
         }
 
         sc.close();
-
-	}
+    }
 }
