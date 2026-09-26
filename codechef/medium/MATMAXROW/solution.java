@@ -1,61 +1,27 @@
-import java.util.*;
-import java.lang.*;
-import java.io.*;
+public static void rotateClockwise(int[][] matrix) {
+    int n = matrix.length;
 
-class Codechef
-{
-	public static void main (String[] args) throws java.lang.Exception
-	{
-        Scanner sc = new Scanner(System.in);
-
-        int n = sc.nextInt();
-        int m = sc.nextInt();
-
-        int[][] matrix = new int[n][m];
-
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = 0; j < m; j++)
-            {
-                matrix[i][j] = sc.nextInt();
-            }
+    // Transpose the matrix
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            int temp = matrix[i][j];
+            matrix[i][j] = matrix[j][i];
+            matrix[j][i] = temp;
         }
+    }
 
-        int maxOnes = 0;
-        int answer = 1;
+    // Reverse each row
+    for (int i = 0; i < n; i++) {
+        int left = 0;
+        int right = n - 1;
 
-        for (int i = 0; i < n; i++)
-        {
-            int left = 0;
-            int right = m - 1;
-            int firstOne = m;
+        while (left < right) {
+            int temp = matrix[i][left];
+            matrix[i][left] = matrix[i][right];
+            matrix[i][right] = temp;
 
-            while (left <= right)
-            {
-                int mid = left + (right - left) / 2;
-
-                if (matrix[i][mid] == 1)
-                {
-                    firstOne = mid;
-                    right = mid - 1;
-                }
-                else
-                {
-                    left = mid + 1;
-                }
-            }
-
-            int ones = m - firstOne;
-
-            if (ones > maxOnes)
-            {
-                maxOnes = ones;
-                answer = i + 1;
-            }
+            left++;
+            right--;
         }
-
-        System.out.println(answer);
-
-        sc.close();
-	}
+    }
 }
