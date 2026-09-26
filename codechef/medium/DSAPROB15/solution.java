@@ -12,9 +12,6 @@ public class Main {
         while (left < right) {
 
             if (arr[left] + arr[right] < x) {
-
-                // All elements between left and right
-                // can form a valid pair with arr[left]
                 count += right - left;
 
                 left++;
