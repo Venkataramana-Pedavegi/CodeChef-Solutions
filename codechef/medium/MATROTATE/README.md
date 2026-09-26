@@ -55,12 +55,13 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T06:23:49.300Z  
+**Submitted:** 2026-09-26T18:00:41.045Z  
 
 ```java
 public static void rotateClockwise(int[][] matrix) {
-     int n = matrix.length;
+    int n = matrix.length;
 
+    // Transpose the matrix
     for (int i = 0; i < n; i++) {
         for (int j = i + 1; j < n; j++) {
             int temp = matrix[i][j];
@@ -69,6 +70,7 @@ public static void rotateClockwise(int[][] matrix) {
         }
     }
 
+    // Reverse each row
     for (int i = 0; i < n; i++) {
         int left = 0;
         int right = n - 1;
