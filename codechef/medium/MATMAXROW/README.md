@@ -4,37 +4,50 @@
 
 ## Problem
 
-### Row With Maximum Ones
+### Matrix Rotations
 
-Find the row with maximum no. of 1’s in a row-wise sorted binary matrix. If there are many such rows, print the first one.
+Given a `N x N` square matrix, rotate 90°  **clockwise**.
 
-For eg. in the following matrix:
+For eg. see the following rotation:
 
-Both row `2` and row `4` has maximum number of 1's, hence the answer would be  **2**  as its the first row which has maximum 1's.
+## Function Declaration
+### Function Name
 
+$rotateClockwise$
+
+### Description
+
+$rotateClockwise$ : rotates a given  **N × N square matrix**  by  **90 degrees clockwise**. The rotation should be performed  **in-place**, meaning the input matrix itself is modified without using any extra matrix.
+
+### Parameters
+- $matrix$ : A 2D array of integers of size $N \times N$ Represents the square matrix to be rotated.
+### Return Value
+- The function does not return anything.
+- The input matrix is modified directly to reflect the rotated matrix.
+## Constraints
+- $1 \leq N \leq 100$
+- The elements of the matrix are non-negative and won't exceed $1000$.
 ### Input Format
-- The first line of input will contain two space separated integers $N$ and $M$, denoting the no. of rows and columns in the row-wise sorted binary matrix.
+- The first line of input will contain a single integer $N$, denoting the no. of rows and columns in input matrix
 - Next $N$ lines contains $N$ space separated integers, the elements of the matrix.
 ### Output Format
-- Output on a single line the row number which has maximum 1's.
-- Follow up: can you solve it in better than O(N*M) time complexity?
-### Constraints
-- $1 \leq N, M \leq 100$
-- The elements of the matrix are either 0 or 1.
-- Matrix is row-wise sorted.
+- Output $N$ lines, each containing $N$ space separated integers, the elements of rotated matrix.
+- Follow up: Can you do it in-place by modifying the input matrix, without allocating extra space for another matrix ?
 ### Sample 1:
 Input
 Output
 
 ```
-3 3
-0 1 1
-0 1 1
-0 1 1
+3
+3 1 5
+8 2 1
+4 6 0
 ```
 
 ```
-1
+4 8 3
+6 2 1
+0 1 5
 ```
 
 ## Solution
@@ -42,71 +55,36 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T06:05:42.272Z  
+**Submitted:** 2026-09-26T18:00:59.399Z  
 
 ```java
-import java.util.*;
-import java.lang.*;
-import java.io.*;
+public static void rotateClockwise(int[][] matrix) {
+    int n = matrix.length;
 
-class Codechef
-{
-	public static void main (String[] args) throws java.lang.Exception
-	{
-        Scanner sc = new Scanner(System.in);
-
-        int n = sc.nextInt();
-        int m = sc.nextInt();
-
-        int[][] matrix = new int[n][m];
-
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = 0; j < m; j++)
-            {
-                matrix[i][j] = sc.nextInt();
-            }
+    // Transpose the matrix
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            int temp = matrix[i][j];
+            matrix[i][j] = matrix[j][i];
+            matrix[j][i] = temp;
         }
+    }
 
-        int maxOnes = 0;
-        int answer = 1;
+    // Reverse each row
+    for (int i = 0; i < n; i++) {
+        int left = 0;
+        int right = n - 1;
 
-        for (int i = 0; i < n; i++)
-        {
-            int left = 0;
-            int right = m - 1;
-            int firstOne = m;
+        while (left < right) {
+            int temp = matrix[i][left];
+            matrix[i][left] = matrix[i][right];
+            matrix[i][right] = temp;
 
-            while (left <= right)
-            {
-                int mid = left + (right - left) / 2;
-
-                if (matrix[i][mid] == 1)
-                {
-                    firstOne = mid;
-                    right = mid - 1;
-                }
-                else
-                {
-                    left = mid + 1;
-                }
-            }
-
-            int ones = m - firstOne;
-
-            if (ones > maxOnes)
-            {
-                maxOnes = ones;
-                answer = i + 1;
-            }
+            left++;
+            right--;
         }
-
-        System.out.println(answer);
-
-        sc.close();
-	}
+    }
 }
-
 ```
 
 ---
