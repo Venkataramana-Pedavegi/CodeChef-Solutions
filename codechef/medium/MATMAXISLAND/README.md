@@ -44,56 +44,48 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-19T13:45:07.701Z  
+**Submitted:** 2026-09-26T18:16:55.941Z  
 
 ```java
 import java.util.*;
+import java.lang.*;
+import java.io.*;
 
-class Main {
-
+class Codechef
+{
     static int n, m;
-    static int[][] mat;
+    static int[][] grid;
 
-    static int dfs(int r, int c) {
-
-        // Boundary or water
-        if (r < 0 || r >= n || c < 0 || c >= m || mat[r][c] == 0) {
+    static int dfs(int i, int j)
+    {
+        if (i < 0 || i >= n || j < 0 || j >= m || grid[i][j] == 0) {
             return 0;
         }
 
-        // Mark as visited
-        mat[r][c] = 0;
+        grid[i][j] = 0;
 
-        // Count current cell
         int area = 1;
 
-        // Up
-        area += dfs(r - 1, c);
-
-        // Down
-        area += dfs(r + 1, c);
-
-        // Left
-        area += dfs(r, c - 1);
-
-        // Right
-        area += dfs(r, c + 1);
+        area += dfs(i - 1, j); // Up
+        area += dfs(i + 1, j); // Down
+        area += dfs(i, j - 1); // Left
+        area += dfs(i, j + 1); // Right
 
         return area;
     }
 
-    public static void main(String[] args) {
-
+    public static void main (String[] args) throws java.lang.Exception
+    {
         Scanner sc = new Scanner(System.in);
 
         n = sc.nextInt();
         m = sc.nextInt();
 
-        mat = new int[n][m];
+        grid = new int[n][m];
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                mat[i][j] = sc.nextInt();
+                grid[i][j] = sc.nextInt();
             }
         }
 
@@ -102,7 +94,7 @@ class Main {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
 
-                if (mat[i][j] == 1) {
+                if (grid[i][j] == 1) {
                     int area = dfs(i, j);
                     maxArea = Math.max(maxArea, area);
                 }
@@ -110,6 +102,8 @@ class Main {
         }
 
         System.out.println(maxArea);
+
+        sc.close();
     }
 }
 ```
