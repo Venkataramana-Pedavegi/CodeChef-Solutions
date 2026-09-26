@@ -81,7 +81,7 @@ Thus, the total number of such pairs is 9.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-24T05:51:07.775Z  
+**Submitted:** 2026-09-26T17:53:06.063Z  
 
 ```java
 import java.util.*;
@@ -98,9 +98,6 @@ public class Main {
         while (left < right) {
 
             if (arr[left] + arr[right] < x) {
-
-                // All elements between left and right
-                // can form a valid pair with arr[left]
                 count += right - left;
 
                 left++;
