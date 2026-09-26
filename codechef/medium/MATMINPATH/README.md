@@ -41,7 +41,7 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T06:15:43.068Z  
+**Submitted:** 2026-09-26T18:11:23.805Z  
 
 ```java
 import java.util.*;
@@ -50,56 +50,49 @@ import java.io.*;
 
 class Codechef
 {
-	public static void main (String[] args) throws java.lang.Exception
-	{
-		
-         Scanner sc = new Scanner(System.in);
+    public static void main (String[] args) throws java.lang.Exception
+    {
+        Scanner sc = new Scanner(System.in);
 
         int n = sc.nextInt();
         int m = sc.nextInt();
 
-        int[][] mat = new int[n][m];
+        int[][] arr = new int[n][m];
+        int[][] dp = new int[n][m];
 
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = 0; j < m; j++)
-            {
-                mat[i][j] = sc.nextInt();
+        // Input
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                arr[i][j] = sc.nextInt();
             }
         }
 
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = 0; j < m; j++)
-            {
-                if (i == 0 && j == 0)
-                {
-                    continue;
-                }
-                else if (i == 0)
-                {
-                    mat[i][j] += mat[i][j - 1];
-                }
-                else if (j == 0)
-                {
-                    mat[i][j] += mat[i - 1][j];
-                }
-                else
-                {
-                    mat[i][j] += Math.min(
-                        mat[i - 1][j],
-                        mat[i][j - 1]
-                    );
-                }
+        // Starting cell
+        dp[0][0] = arr[0][0];
+
+        // First row
+        for (int j = 1; j < m; j++) {
+            dp[0][j] = dp[0][j - 1] + arr[0][j];
+        }
+
+        // First column
+        for (int i = 1; i < n; i++) {
+            dp[i][0] = dp[i - 1][0] + arr[i][0];
+        }
+
+        // Remaining cells
+        for (int i = 1; i < n; i++) {
+            for (int j = 1; j < m; j++) {
+                dp[i][j] = arr[i][j] +
+                           Math.min(dp[i - 1][j], dp[i][j - 1]);
             }
         }
 
-        System.out.println(mat[n - 1][m - 1]);
+        System.out.println(dp[n - 1][m - 1]);
 
         sc.close();
-	}
+    }
 }
-
 ```
 
 ---
