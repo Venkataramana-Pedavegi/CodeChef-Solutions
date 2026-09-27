@@ -1,52 +1,54 @@
 import java.util.*;
+import java.lang.*;
+import java.io.*;
 
-class Main {
-
-    public static void main(String[] args) {
-
+class Codechef
+{
+    public static void main (String[] args) throws java.lang.Exception
+    {
         Scanner sc = new Scanner(System.in);
 
         int n = sc.nextInt();
         int m = sc.nextInt();
         int x = sc.nextInt();
 
-        int[][] mat = new int[n][m];
+        int[][] matrix = new int[n][m];
 
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                mat[i][j] = sc.nextInt();
+        // Input matrix
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < m; j++)
+            {
+                matrix[i][j] = sc.nextInt();
             }
         }
 
+        // Binary Search
         int low = 0;
         int high = n * m - 1;
 
-        boolean found = false;
-
-        while (low <= high) {
-
+        while (low <= high)
+        {
             int mid = low + (high - low) / 2;
 
-            // Convert 1D index to 2D index
             int row = mid / m;
             int col = mid % m;
 
-            if (mat[row][col] == x) {
-                found = true;
-                break;
+            if (matrix[row][col] == x)
+            {
+                System.out.println("YES");
+                return;
             }
-            else if (mat[row][col] < x) {
+            else if (matrix[row][col] < x)
+            {
                 low = mid + 1;
             }
-            else {
+            else
+            {
                 high = mid - 1;
             }
         }
 
-        if (found) {
-            System.out.println("YES");
-        } else {
-            System.out.println("NO");
-        }
+        System.out.println("NO");
     }
 }
