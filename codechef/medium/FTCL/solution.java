@@ -10,36 +10,46 @@ class Codechef
 
         int n = sc.nextInt();
 
-        int[][] matrix = new int[n][n];
+        String[] matrix = new String[n];
 
         for (int i = 0; i < n; i++)
         {
-            for (int j = 0; j < n; j++)
+            matrix[i] = sc.next();
+        }
+
+        // Find a possible celebrity
+        int candidate = 0;
+
+        for (int i = 1; i < n; i++)
+        {
+            if (matrix[candidate].charAt(i) == '1')
             {
-                matrix[i][j] = sc.nextInt();
+                // Candidate knows i, so candidate cannot be celebrity
+                candidate = i;
             }
         }
 
-        long sum = 0;
-
+        // Verify the candidate
         for (int i = 0; i < n; i++)
         {
-            for (int j = 0; j < n; j++)
+            if (i == candidate)
+                continue;
+
+            // Everyone must know candidate
+            if (matrix[i].charAt(candidate) != '1')
             {
-                // Border element
-                boolean border = (i == 0 || i == n - 1 ||
-                                  j == 0 || j == n - 1);
+                System.out.println(-1);
+                return;
+            }
 
-                // Main or secondary diagonal
-                boolean diagonal = (i == j || i + j == n - 1);
-
-                if (border && !diagonal)
-                {
-                    sum += matrix[i][j];
-                }
+            // Candidate must not know anyone
+            if (matrix[candidate].charAt(i) != '0')
+            {
+                System.out.println(-1);
+                return;
             }
         }
 
-        System.out.println(sum);
+        System.out.println(candidate);
     }
 }
