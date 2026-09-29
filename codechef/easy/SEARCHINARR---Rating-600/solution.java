@@ -4,7 +4,5 @@ public static String solve(int N, int X, int[] A) {
             return "YES";
         }
     }
-
     return "NO";
 }
-        
