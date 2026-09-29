@@ -60,7 +60,7 @@ NO
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-16T15:05:20.721Z  
+**Submitted:** 2026-09-29T15:30:02.797Z  
 
 ```java
 public static String solve(int N, int X, int[] A) {
@@ -69,11 +69,8 @@ public static String solve(int N, int X, int[] A) {
             return "YES";
         }
     }
-
     return "NO";
 }
-        
-
 ```
 
 ---
