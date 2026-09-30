@@ -54,7 +54,7 @@ No
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-30T16:00:02.280Z  
+**Submitted:** 2026-09-30T16:00:56.536Z  
 
 ```java
 import java.util.*;
@@ -70,7 +70,7 @@ class Codechef
 		while(T-->0){
 		int N=sc.nextInt();
 		int M=sc.nextInt();
-		if(N<M){
+		if(N%2==0 || M%2==0){
 		    System.out.println("yes");
 		}else{
 		    System.out.println("no");
