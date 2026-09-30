@@ -14,34 +14,46 @@ class Codechef
         {
             int N = sc.nextInt();
 
-            int[] count = new int[102];
+            int[] A = new int[N];
+            boolean[] present = new boolean[N + 2];
 
             for (int i = 0; i < N; i++)
             {
-                int x = sc.nextInt();
-                count[x]++;
+                A[i] = sc.nextInt();
+
+                if (A[i] <= N + 1)
+                {
+                    present[A[i]] = true;
+                }
             }
             int mex = 0;
 
-            while (count[mex] > 0)
+            while (present[mex])
             {
                 mex++;
             }
 
             long moves = 0;
-            for (int x = 1; x < mex; x++)
+            for (int i = 0; i < N; i++)
             {
-                if (count[x] > 1)
+                if (A[i] > mex + 1)
                 {
-                    moves += (long)(count[x] - 1) * x;
+                    moves += A[i] - mex - 1;
                 }
             }
-            for (int x = mex + 2; x <= 100; x++)
+            int count = 0;
+
+            for (int i = 0; i < N; i++)
             {
-                if (count[x] > 0)
+                if (A[i] == mex - 1)
                 {
-                    moves += (long)count[x] * (x - mex - 1);
+                    count++;
                 }
+            }
+
+            if (count >= 2)
+            {
+                moves++;
             }
 
             if (moves % 2 == 1)
