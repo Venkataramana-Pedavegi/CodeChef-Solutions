@@ -56,7 +56,7 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-30T16:07:19.297Z  
+**Submitted:** 2026-09-30T16:08:05.863Z  
 
 ```java
 import java.util.*;
@@ -65,22 +65,42 @@ import java.io.*;
 
 class Codechef
 {
-	public static void main (String[] args) throws java.lang.Exception
-	{
-		Scanner sc=new Scanner(System.in);
-		int t=sc.nextInt();
-		while(t-->0){
-		int N=sc.nextInt();
-		int M=sc.nextInt();
-		int K=sc.nextInt();
-		for(int i=1;i<M;i++){
-		    sys
-		}    
-		}
+    public static void main (String[] args) throws java.lang.Exception
+    {
+        Scanner sc = new Scanner(System.in);
 
-	}
+        int T = sc.nextInt();
+
+        while (T-- > 0)
+        {
+            int N = sc.nextInt();
+            int M = sc.nextInt();
+            int K = sc.nextInt();
+
+            boolean[] occupied = new boolean[N + 1];
+            for (int i = 0; i < M; i++)
+            {
+                int seat = sc.nextInt();
+                occupied[seat] = true;
+            }
+            int count = 0;
+
+            for (int seat = 1; seat <= N && count < K; seat++)
+            {
+                if (!occupied[seat])
+                {
+                    System.out.print(seat + " ");
+                    occupied[seat] = true;
+                    count++;
+                }
+            }
+
+            System.out.println();
+        }
+
+        sc.close();
+    }
 }
-
 ```
 
 ---
