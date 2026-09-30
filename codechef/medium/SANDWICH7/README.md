@@ -57,7 +57,7 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-30T15:50:57.309Z  
+**Submitted:** 2026-09-30T15:51:31.909Z  
 
 ```java
 import java.util.*;
@@ -66,13 +66,21 @@ import java.io.*;
 
 class Codechef
 {
-	public static void main (String[] args) throws java.lang.Exception
-	{
-		// your code goes here
+    public static void main (String[] args) throws java.lang.Exception
+    {
+        Scanner sc = new Scanner(System.in);
 
-	}
+        int B = sc.nextInt();
+        int H = sc.nextInt();
+        int C = sc.nextInt();
+
+        int sandwiches = Math.min(B / 2, H + C);
+
+        System.out.println(sandwiches);
+
+        sc.close();
+    }
 }
-
 ```
 
 ---
