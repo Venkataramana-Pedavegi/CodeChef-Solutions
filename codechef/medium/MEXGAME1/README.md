@@ -64,7 +64,7 @@ Alice
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-30T16:14:47.613Z  
+**Submitted:** 2026-09-30T16:16:31.108Z  
 
 ```java
 import java.util.*;
@@ -83,46 +83,34 @@ class Codechef
         {
             int N = sc.nextInt();
 
-            int[] A = new int[N];
-            boolean[] present = new boolean[N + 2];
+            int[] count = new int[102];
 
             for (int i = 0; i < N; i++)
             {
-                A[i] = sc.nextInt();
-
-                if (A[i] <= N + 1)
-                {
-                    present[A[i]] = true;
-                }
+                int x = sc.nextInt();
+                count[x]++;
             }
             int mex = 0;
 
-            while (present[mex])
+            while (count[mex] > 0)
             {
                 mex++;
             }
 
             long moves = 0;
-            for (int i = 0; i < N; i++)
+            for (int x = 1; x < mex; x++)
             {
-                if (A[i] > mex + 1)
+                if (count[x] > 1)
                 {
-                    moves += A[i] - mex - 1;
+                    moves += (long)(count[x] - 1) * x;
                 }
             }
-            int count = 0;
-
-            for (int i = 0; i < N; i++)
+            for (int x = mex + 2; x <= 100; x++)
             {
-                if (A[i] == mex - 1)
+                if (count[x] > 0)
                 {
-                    count++;
+                    moves += (long)count[x] * (x - mex - 1);
                 }
-            }
-
-            if (count >= 2)
-            {
-                moves++;
             }
 
             if (moves % 2 == 1)
