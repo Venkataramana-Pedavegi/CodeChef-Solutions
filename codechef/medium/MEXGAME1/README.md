@@ -64,7 +64,7 @@ Alice
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-30T16:13:31.058Z  
+**Submitted:** 2026-09-30T16:13:38.276Z  
 
 ```java
 import java.util.*;
