@@ -44,7 +44,7 @@ $2$ does not exist in this array
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-02T15:26:06.661Z  
+**Submitted:** 2026-10-02T15:44:11.593Z  
 
 ```java
 import java.util.*;
