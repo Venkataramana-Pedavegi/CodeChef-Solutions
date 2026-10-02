@@ -62,7 +62,7 @@ $9$ when inserted, would be present at index $4$.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-02T15:34:36.833Z  
+**Submitted:** 2026-10-02T15:36:44.188Z  
 
 ```java
 public static int searchInsertPosition(int[] arr, int n, int k) {
