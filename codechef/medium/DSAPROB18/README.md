@@ -56,7 +56,7 @@ The sum of tiles is 25, which is a perfect square (5x5).
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-02T15:57:40.126Z  
+**Submitted:** 2026-10-02T16:05:52.872Z  
 
 ```java
 import java.util.*;
