@@ -56,9 +56,9 @@ merged: a p b q c   d
 ## Solution
 
 **Language:** Java  
-**Runtime:** 1 ms (beats 95.69%)  
-**Memory:** 43 MB (beats 63.53%)  
-**Submitted:** 2026-09-19T15:41:32.406Z  
+**Runtime:** 1 ms (beats 95.91%)  
+**Memory:** 42.9 MB (beats 78.23%)  
+**Submitted:** 2026-10-04T14:47:50.822Z  
 
 ```java
 class Solution {
