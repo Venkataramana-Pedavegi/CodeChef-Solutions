@@ -1,0 +1,25 @@
+                                                                                                                                                                                          {/* Create product cards for all products */}
+                                                                                                                                                                                                  {products.map((product) => (
+                                                                                                                                                                                                            // Important: Add unique key prop for each product
+                                                                                                                                                                                                                      <ProductCard 
+                                                                                                                                                                                                                                  key={product.id} 
+                                                                                                                                                                                                                                              product={product} 
+                                                                                                                                                                                                                                                        />
+                                                                                                                                                                                                                                                                ))}
+                                                                                                                                                                                                                                                                      </div>
+                                                                                                                                                                                                                                                                          </div>
+                                                                                                                                                                                                                                                                            );
+                                                                                                                                                                                                                                                                            }
+
+                                                                                                                                                                                                                                                                            export default App;
+
+                                                                                                                                                                function App() {
+                                                                                                                                                                  return (
+                                                                                                                                                                      <div className="container">
+                                                                                                                                                                            <h1>Product List</h1>
+                                                                                                                                                                                  <div className="product-list">
+                                                                                                                                                                }
+                                                                                                                                                                );
+                                                                                                                                                              </div>
+                                                                                                                                                          <button onClick={handleClick}>Select</button>
+                                                                                                                                                    {/* Button that triggers the alert */}
