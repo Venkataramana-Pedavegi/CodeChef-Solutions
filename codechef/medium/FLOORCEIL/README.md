@@ -68,13 +68,11 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-06T23:24:17.727Z  
+**Submitted:** 2026-10-06T23:32:05.610Z  
 
 ```java
 class Solution {
     public int[] findFloorCeil(int[] arr, int k) {
-
-
         int low = 0;
         int high = arr.length - 1;
 
@@ -82,29 +80,19 @@ class Solution {
         int ceil = -1;
 
         while (low <= high) {
-
             int mid = low + (high - low) / 2;
 
             if (arr[mid] == k) {
-                // k itself is both floor and ceil
-                floor = arr[mid];
-                ceil = arr[mid];
+                floor = k;
+                ceil = k;
                 break;
-            }
-
+            } 
             else if (arr[mid] < k) {
-                // arr[mid] can be the floor
                 floor = arr[mid];
-
-                // Look for a larger value
                 low = mid + 1;
-            }
-
+            } 
             else {
-                // arr[mid] can be the ceil
                 ceil = arr[mid];
-
-                // Look for a smaller value
                 high = mid - 1;
             }
         }
@@ -112,10 +100,6 @@ class Solution {
         return new int[]{floor, ceil};
     }
 }
-
-    
-
-
 ```
 
 ---
