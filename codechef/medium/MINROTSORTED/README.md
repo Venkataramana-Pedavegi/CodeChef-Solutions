@@ -63,7 +63,7 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-02T09:45:23.524Z  
+**Submitted:** 2026-10-08T16:32:04.072Z  
 
 ```java
 class Solution {
@@ -74,12 +74,9 @@ class Solution {
         while (low < high) {
             int mid = low + (high - low) / 2;
 
-            // Minimum is in the right half
             if (nums[mid] > nums[high]) {
                 low = mid + 1;
-            }
-            // Minimum is at mid or in the left half
-            else {
+            } else {
                 high = mid;
             }
         }
