@@ -6,12 +6,9 @@ class Solution {
         while (low < high) {
             int mid = low + (high - low) / 2;
 
-            // Minimum is in the right half
             if (nums[mid] > nums[high]) {
                 low = mid + 1;
-            }
-            // Minimum is at mid or in the left half
-            else {
+            } else {
                 high = mid;
             }
         }
