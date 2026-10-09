@@ -12,14 +12,19 @@
                                                           const width = useWindowWidth();
 
                                                             return (
-                                                                <div style={{ padding: "20px", textAlign: "center" }}>
-                                                                      <h2>Current Window Width:</h2>
-                                                                            <p style={{ fontSize: "24px", fontWeight: "bold", color: "blue" }}>
-                                                                                    {width}px
-                                                                                          </p>
-                                                                                              </div>
-                                                                                                );
-                                                                                                };
 
-                                                                                                export default ResponsiveComponent;
-                                                                                                
+                                window.addEventListener("resize", handleResize);
+
+                            };
+                  clearTimeout(timeoutId);
+                        timeoutId = setTimeout(() => setWidth(window.innerWidth), delay);
+
+            const handleResize = () => {
+  const [width, setWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        let timeoutId = null;
+import { useState, useEffect } from "react";
+
+const useWindowWidth = (delay = 200) => {
+import React from "react";
