@@ -71,7 +71,7 @@ Update the existing  **`useWindowWidth`**  hook template to track the browser wi
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-09T16:21:39.443Z  
+**Submitted:** 2026-10-09T16:22:36.653Z  
 
 ```cpp
                                     return () => {
@@ -88,17 +88,22 @@ Update the existing  **`useWindowWidth`**  hook template to track the browser wi
                                                           const width = useWindowWidth();
 
                                                             return (
-                                                                <div style={{ padding: "20px", textAlign: "center" }}>
-                                                                      <h2>Current Window Width:</h2>
-                                                                            <p style={{ fontSize: "24px", fontWeight: "bold", color: "blue" }}>
-                                                                                    {width}px
-                                                                                          </p>
-                                                                                              </div>
-                                                                                                );
-                                                                                                };
 
-                                                                                                export default ResponsiveComponent;
-                                                                                                
+                                window.addEventListener("resize", handleResize);
+
+                            };
+                  clearTimeout(timeoutId);
+                        timeoutId = setTimeout(() => setWidth(window.innerWidth), delay);
+
+            const handleResize = () => {
+  const [width, setWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        let timeoutId = null;
+import { useState, useEffect } from "react";
+
+const useWindowWidth = (delay = 200) => {
+import React from "react";
 ```
 
 ---
