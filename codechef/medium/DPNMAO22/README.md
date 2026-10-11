@@ -56,7 +56,7 @@ The consonants $C$ and $D$ can be permuted in $2! = 2$ ways.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-11T10:41:48.391Z  
+**Submitted:** 2026-10-11T10:41:57.825Z  
 
 ```java
 import java.util.*;
