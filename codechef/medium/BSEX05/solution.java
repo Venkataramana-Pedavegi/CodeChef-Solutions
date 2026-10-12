@@ -1,23 +1,57 @@
-class Solution {
-    public int findPeakElement(int[] nums) {
 
-        int low = 0;
-        int high = nums.length - 1;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
 
-        while (low < high) {
+class Codechef {
+    public static void main(String[] args) throws java.lang.Exception {
+        Scanner sc = new Scanner(System.in);
 
-            int mid = low + (high - low) / 2;
+        int n = sc.nextInt();
+        int[] houses = new int[n];
 
-            if (nums[mid] < nums[mid + 1]) {
-                // Increasing slope → peak is on the right
-                low = mid + 1;
-            } 
-            else {
-                // Decreasing slope → peak is at mid or on the left
-                high = mid;
-            }
+        for (int i = 0; i < n; i++) {
+            houses[i] = sc.nextInt();
         }
 
-        return low;
+        int m = sc.nextInt();
+        int[] sprinklers = new int[m];
+
+        for (int i = 0; i < m; i++) {
+            sprinklers[i] = sc.nextInt();
+        }
+
+        Arrays.sort(houses);
+        Arrays.sort(sprinklers);
+
+        int maxRadius = 0;
+
+        for (int house : houses) {
+            int low = 0;
+            int high = m - 1;
+
+            while (low < high) {
+                int mid = low + (high - low) / 2;
+
+                if (sprinklers[mid] < house) {
+                    low = mid + 1;
+                } else {
+                    high = mid;
+                }
+            }
+
+            int rightDistance = Math.abs(sprinklers[low] - house);
+            int leftDistance = Integer.MAX_VALUE;
+
+            if (low > 0) {
+                leftDistance = Math.abs(sprinklers[low - 1] - house);
+            }
+
+            int distance = Math.min(leftDistance, rightDistance);
+            maxRadius = Math.max(maxRadius, distance);
+        }
+
+        System.out.println(maxRadius);
+        sc.close();
     }
 }
