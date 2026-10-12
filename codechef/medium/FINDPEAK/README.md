@@ -4,107 +4,86 @@
 
 ## Problem
 
-### Wildfire
+### Find Peak Element
 
-A wildfire is approaching, and you need to set up emergency water sprinklers to protect all houses along a straight road. Each sprinkler has a fixed coverage radius, meaning it can cover houses within a certain distance from its position. Your task is to determine the minimum radius required for the sprinklers so that every house on the road is within the coverage of at least one sprinkler.
+A  **peak element**  in an array is an element that is  **strictly greater**  than its adjacent elements.
 
-Given the positions of the houses and sprinklers on a horizontal line, calculate the smallest coverage radius that ensures all houses are protected. Note that all sprinklers must use the same coverage radius.
+You are provided with a  **0-based index integer array**  $nums$ of size $N$. Your task is to identify the index of  **any one peak element**  in the array and return it. If multiple peak elements exist, returning the index of any one of them is acceptable.
 
+For simplicity, assume that the elements just outside the boundaries of the array are considered to be negative infinity. That is:
+
+- $arr[-1] = -∞$
+- $arr[arr.length] = -∞$
+
+Your solution  **must have a time complexity of O(log N).** 
+
+## Function Declaration
+### Function Name
+
+$findPeakElement$ – This function finds the index of a peak element in the array.
+
+### Parameters
+- $nums$ : A 0-based indexed array of integers where adjacent elements are not equal.
+### Return Value
+- Returns a single integer — the index of any peak element.
+## Constraints
+- $1 \leq T \leq 1000$
+- $1 \leq N \leq 1000$
+- $−2^\text{31} \leq nums[i] \leq 2^\text{31} − 1$
+- $nums[i] ≠ nums[i + 1]$ for all valid indices $i$
+- Time complexity must be O(log n)
 ### Input Format
-- The first line contains an integer $n$, the number of houses.
-- The second line contains $n$ space-separated integers, where each integer $houses[i]$ represents the position of the $i$-th house on the road.
-- The third line contains an integer $m$, the number of sprinklers.
-- The fourth line contains $m$ space-separated integers, where each integer $sprinklers[i]$ represents the position of the $i$-th sprinkler on the road.
+- The first line contains the number of test cases $T$ Each test case contains: The first line contains a single integer $N$ — the size of the array. The second line contains $N$ space-separated integers representing the array elements.
 ### Output Format
-- A single integer representing the minimum radius required for the sprinklers to ensure all houses are protected.
-### Constraints
-- $1 \leq \text{houses.length}, \text{sprinklers.length} \leq 10^5$
-- $1 \leq \text{houses}[i], \text{sprinklers}[i] \leq 10^9$
+- Print a single integer — the index of a peak element.
 ### Sample 1:
 Input
 Output
 
 ```
-4
-1 2 3 4
 2
-1 4
+5
+5 10 7 3 8
+5
+2 4 3 6 1
 
 ```
 
 ```
 1
+3
+
 ```
 
 ### Explanation:
-- The two sprinklers are placed at positions 1 and 4.
-- The first sprinkler at position 1 covers houses at positions 1 and 2.
-- The second sprinkler at position 4 covers houses at positions 3 and 4.
-- A radius of 1 ensures that every house is protected.
+- In the first test case element 10 at index 1 is a peak because 10 > 5 and 10 > 7.
+- In the second test case element 6 at index 3 is a peak as 6 > 3 and 6 > 1.
 
 ## Solution
 
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-12T16:50:43.023Z  
+**Submitted:** 2026-10-12T16:51:32.031Z  
 
 ```java
 
-import java.util.*;
-import java.lang.*;
-import java.io.*;
+class Solution {
+    public int findPeakElement(int[] nums) {
+        int low = 0;
+        int high = nums.length - 1;
 
-class Codechef {
-    public static void main(String[] args) throws java.lang.Exception {
-        Scanner sc = new Scanner(System.in);
+        while (low < high) {
+            int mid = low + (high - low) / 2;
 
-        int n = sc.nextInt();
-        int[] houses = new int[n];
-
-        for (int i = 0; i < n; i++) {
-            houses[i] = sc.nextInt();
-        }
-
-        int m = sc.nextInt();
-        int[] sprinklers = new int[m];
-
-        for (int i = 0; i < m; i++) {
-            sprinklers[i] = sc.nextInt();
-        }
-
-        Arrays.sort(houses);
-        Arrays.sort(sprinklers);
-
-        int maxRadius = 0;
-
-        for (int house : houses) {
-            int low = 0;
-            int high = m - 1;
-
-            while (low < high) {
-                int mid = low + (high - low) / 2;
-
-                if (sprinklers[mid] < house) {
-                    low = mid + 1;
-                } else {
-                    high = mid;
-                }
+            if (nums[mid] < nums[mid + 1]) {
+                low = mid + 1;
+            } else {
+                high = mid;
             }
-
-            int rightDistance = Math.abs(sprinklers[low] - house);
-            int leftDistance = Integer.MAX_VALUE;
-
-            if (low > 0) {
-                leftDistance = Math.abs(sprinklers[low - 1] - house);
-            }
-
-            int distance = Math.min(leftDistance, rightDistance);
-            maxRadius = Math.max(maxRadius, distance);
         }
 
-        System.out.println(maxRadius);
-        sc.close();
+        return low;
     }
 }
 
