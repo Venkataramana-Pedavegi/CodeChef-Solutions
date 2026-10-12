@@ -49,79 +49,69 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-08T16:35:09.964Z  
+**Submitted:** 2026-10-12T16:49:02.299Z  
 
 ```java
+
 import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class Codechef
-{
-    public static void main(String[] args) throws java.lang.Exception
-    {
+class Codechef {
+    public static void main(String[] args) throws java.lang.Exception {
         Scanner sc = new Scanner(System.in);
 
-        int n = sc.nextInt();
+        int N = sc.nextInt();
 
-        int[][] events = new int[n][2];
+        int[][] events = new int[N][2];
+        int[][] starts = new int[N][2];
 
-        for (int i = 0; i < n; i++)
-        {
-            events[i][0] = sc.nextInt(); // start
-            events[i][1] = sc.nextInt(); // end
-        }
+        for (int i = 0; i < N; i++) {
+            events[i][0] = sc.nextInt();
+            events[i][1] = sc.nextInt();
 
-        // Store start time and original index
-        int[][] starts = new int[n][2];
-
-        for (int i = 0; i < n; i++)
-        {
             starts[i][0] = events[i][0];
             starts[i][1] = i;
         }
 
-        // Sort by start time
         Arrays.sort(starts, (a, b) -> Integer.compare(a[0], b[0]));
 
-        int[] answer = new int[n];
+        int[] ans = new int[N];
 
-        for (int i = 0; i < n; i++)
-        {
-            int endTime = events[i][1];
+        for (int i = 0; i < N; i++) {
+            int target = events[i][1];
 
             int low = 0;
-            int high = n - 1;
+            int high = N - 1;
             int result = -1;
 
-            // Lower bound: first start >= endTime
-            while (low <= high)
-            {
+            while (low <= high) {
                 int mid = low + (high - low) / 2;
 
-                if (starts[mid][0] >= endTime)
-                {
+                if (starts[mid][0] >= target) {
                     result = starts[mid][1];
                     high = mid - 1;
-                }
-                else
-                {
+                } else {
                     low = mid + 1;
                 }
             }
 
-            answer[i] = result;
+            ans[i] = result;
         }
 
-        // Print answer
-        for (int i = 0; i < n; i++)
-        {
-            System.out.print(answer[i] + " ");
+        for (int i = 0; i < N; i++) {
+            System.out.print(ans[i]);
+
+            if (i < N - 1) {
+                System.out.print(" ");
+            }
         }
 
+        System.out.println();
         sc.close();
     }
 }
+
 ```
 
 ---
