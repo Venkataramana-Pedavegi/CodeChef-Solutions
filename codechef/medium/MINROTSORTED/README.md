@@ -63,9 +63,10 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-08T16:32:04.072Z  
+**Submitted:** 2026-10-12T16:47:13.589Z  
 
 ```java
+
 class Solution {
     public int findMin(int[] nums) {
         int low = 0;
@@ -84,6 +85,7 @@ class Solution {
         return nums[low];
     }
 }
+
 ```
 
 ---
