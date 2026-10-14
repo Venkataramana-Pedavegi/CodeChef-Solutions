@@ -68,9 +68,11 @@ This structure supports both browser-based and API-based feedback collection —
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-14T10:43:38.853Z  
+**Submitted:** 2026-10-14T14:52:22.489Z  
 
 ```cpp
+const express = require('express');
+const path = require('path');
 
 const app = express();
 
@@ -98,8 +100,7 @@ app.post('/submit-feedback-json', (req, res) => {
 
 const PORT = 3000;
 
-const path = require('path');
-const express = require('express');
+app.listen(PORT, () => {
 ```
 
 ---
