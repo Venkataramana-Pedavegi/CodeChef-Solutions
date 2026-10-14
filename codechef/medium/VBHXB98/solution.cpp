@@ -1,3 +1,5 @@
+const express = require('express');
+const path = require('path');
 
 const app = express();
 
@@ -25,5 +27,4 @@ app.post('/submit-feedback-json', (req, res) => {
 
 const PORT = 3000;
 
-const path = require('path');
-const express = require('express');
+app.listen(PORT, () => {
