@@ -62,20 +62,54 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-14T15:35:08.142Z  
+**Submitted:** 2026-10-14T15:36:45.039Z  
 
 ```java
 import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class Codechef
-{
-	public static void main (String[] args) throws java.lang.Exception
-	{
-		// your code goes here
-
-	}
+class Codechef {
+    public static void main (String[] args) throws java.lang.Exception {
+        Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt();
+        
+        while (T-- > 0) {
+            int N = sc.nextInt();
+            int[] P = new int[N+1]; // 1-indexed
+            for (int i = 1; i <= N; i++) {
+                P[i] = sc.nextInt();
+            }
+            
+            // Count current fixed points
+            int base = 0;
+            for (int i = 1; i <= N; i++) {
+                if (P[i] == i) base++;
+            }
+            
+            int maxGain = 0;
+            // Check for mutual pair
+            for (int i = 1; i <= N; i++) {
+                int j = P[i];
+                if (j > i && P[j] == i) {
+                    maxGain = 2;
+                    break;
+                }
+            }
+            
+            // If no mutual pair, check if any element is misplaced
+            if (maxGain == 0) {
+                for (int i = 1; i <= N; i++) {
+                    if (P[i] != i) {
+                        maxGain = 1;
+                        break;
+                    }
+                }
+            }
+            
+            System.out.println(base + maxGain);
+        }
+    }
 }
 
 ```
