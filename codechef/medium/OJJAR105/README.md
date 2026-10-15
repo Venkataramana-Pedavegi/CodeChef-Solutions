@@ -21,9 +21,21 @@ A toggle button is provided to show/hide your component. (Write code in the  **`
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-07T06:43:07.320Z  
+**Submitted:** 2026-10-15T04:31:03.976Z  
 
 ```cpp
+import React, { useState, useEffect } from 'react';
+
+function WindowTracker() {
+  const [windowSize, setWindowSize] = useState({
+      width: window.innerWidth,
+          height: window.innerHeight
+            });
+
+              useEffect(() => {
+                  function handleResize() {
+                        setWindowSize({
+                                width: window.innerWidth,
                                         height: window.innerHeight
                                               });
                                                   }
@@ -41,17 +53,6 @@ A toggle button is provided to show/hide your component. (Write code in the  **`
                                                                                     }
 
                                                                                     export default function App() {
-                                                                                      const [showTracker, setShowTracker] = useState(true);
-
-                                                                                        return (
-                                                                                            <div>
-                                                                                                  <button onClick={() => setShowTracker(!showTracker)}>
-                                                                                                          Toggle Window Tracker
-                                                                                                                </button>
-                                                                                                                      {showTracker && <WindowTracker />}
-                                                                                                                          </div>
-                                                                                                                            );
-                                                                                                                            }
 ```
 
 ---
