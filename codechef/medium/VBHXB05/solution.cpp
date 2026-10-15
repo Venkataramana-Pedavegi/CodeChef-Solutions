@@ -1,4 +1,3 @@
-const options = { timeZone: 'Asia/Kolkata', hour: 'numeric', hour12: false };
 const currentHour = parseInt(new Intl.DateTimeFormat('en-US', options).format(new Date()), 10);
 
 let greeting;
@@ -13,3 +12,4 @@ if (currentHour < 12) {
 
             console.log(currentHour);
             console.log(greeting);
+const options = { timeZone: 'Asia/Kolkata', hour: 'numeric', hour12: false };
