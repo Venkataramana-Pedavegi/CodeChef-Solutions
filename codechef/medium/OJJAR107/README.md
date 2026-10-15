@@ -96,9 +96,10 @@ useEffect(() => {
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-07T06:48:55.209Z  
+**Submitted:** 2026-10-15T04:32:16.735Z  
 
 ```cpp
+import React, { useState, useEffect } from "react";
 
 function LightSwitch() {
   const [isOn, setIsOn] = useState(false);
