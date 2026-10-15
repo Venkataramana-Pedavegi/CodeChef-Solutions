@@ -1,29 +1,29 @@
-    return (
-        <div className="tabs-container">
-              {/* Add your tab headers and content rendering here */}
+import { useState } from 'react';
+import Tabs from './Tabs';
+import './App.css';
 
-                    <div className="navigation-buttons">
-                            <button 
-                                      onClick={onPrevious} 
-                                                disabled={activeTabIndex === 0}
-                                                        >
-                                                                  Previous
-                                                                          </button>
-                                                                                  
-                                                                                          <button 
-                                                                                                    onClick={onNext} 
-                                                                                                              disabled={activeTabIndex === totalTabs - 1}
-                                                                                                                      >
-                                                                                                                                Next
-                                                                                                                                        </button>
-                                                                                                                                              </div>
-                                                                                                                                                  </div>
-                                                                                                                                                    );
-                                                                                                                                                    }
+function App() {
+  const [activeTabIndex, setActiveTabIndex] = useState(0);
+    const totalTabs = 3;
 
-                                                                                                                                                    export default Tabs;
+      const handleNext = () => {
+          setActiveTabIndex((prevIndex) => Math.min(prevIndex + 1, totalTabs - 1));
+            };
 
-function Tabs({ activeTabIndex, onNext, onPrevious }) {
-  const totalTabs = 3;
+              const handlePrevious = () => {
+                  setActiveTabIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+                    };
 
-import React from 'react';
+                      return (
+                          <div className="App">
+                                <h1>Job Application Form</h1>
+                                      <Tabs 
+                                              activeTabIndex={activeTabIndex} 
+                                                      onNext={handleNext} 
+                                                              onPrevious={handlePrevious} 
+                                                                    />
+                                                                        </div>
+                                                                          );
+                                                                          }
+
+                                                                          export default App;
