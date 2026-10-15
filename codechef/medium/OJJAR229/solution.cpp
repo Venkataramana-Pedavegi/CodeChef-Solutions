@@ -1,3 +1,26 @@
+import { useState, useEffect } from 'react'
+import { fetchCryptoPrices } from './data'
+
+function App() {
+  const [prices, setPrices] = useState([])
+
+    useEffect(() => {
+        const updatePrices = async () => {
+              const data = await fetchCryptoPrices()
+                    setPrices(data)
+                        }
+
+                            // Initial load
+                                updatePrices()
+
+                                    // Poll every 5 seconds
+                                        const intervalId = setInterval(updatePrices, 5000)
+
+                                            // Cleanup interval on unmount
+                                                return () => clearInterval(intervalId)
+                                                  }, [])
+
+                                                    return (
                                                         <div style={{ fontFamily: 'sans-serif', padding: '20px' }}>
                                                               <h1>📈 Crypto Dashboard</h1>
                                                                     <p>Updates every 5 seconds...</p>
@@ -5,20 +28,3 @@
                                                                                   <thead>
                                                                                             <tr>
                                                                                                         <th style={{ padding: '8px', border: '1px solid gray' }}>Name</th>
-                                                                                                                    <th style={{ padding: '8px', border: '1px solid gray' }}>Price ($)</th>
-                                                                                                                              </tr>
-                                                                                                                                      </thead>
-                                                                                                                                              <tbody>
-                                                                                                                                                        {prices.map((coin, index) => (
-                                                                                                                                                                    <tr key={index}>
-                                                                                                                                                                                  <td style={{ padding: '8px', border: '1px solid gray' }}>{coin.name}</td>
-                                                                                                                                                                                                <td style={{ padding: '8px', border: '1px solid gray' }}>{coin.price}</td>
-                                                                                                                                                                                                            </tr>
-                                                                                                                                                                                                                      ))}
-                                                                                                                                                                                                                              </tbody>
-                                                                                                                                                                                                                                    </table>
-                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                          )
-                                                                                                                                                                                                                                          }
-
-                                                                                                                                                                                                                                          export default App
