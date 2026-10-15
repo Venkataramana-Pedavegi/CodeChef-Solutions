@@ -85,18 +85,10 @@ You’ve now created a working project with a script and learned how dependencie
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-15T08:01:42.736Z  
+**Submitted:** 2026-10-15T15:23:28.962Z  
 
 ```cpp
-{
-      "name": "workspace",
-        "version": "1.0.0",
-          "main": "index.js",
-            "scripts": {
-                "start": "node index.js"
-                  }
-                  }
-
+console.log("Hello from my Node.js script!");
 ```
 
 ---
