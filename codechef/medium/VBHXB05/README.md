@@ -27,10 +27,9 @@ Good Afternoon!
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-15T07:56:15.801Z  
+**Submitted:** 2026-10-15T15:22:34.967Z  
 
 ```cpp
-const options = { timeZone: 'Asia/Kolkata', hour: 'numeric', hour12: false };
 const currentHour = parseInt(new Intl.DateTimeFormat('en-US', options).format(new Date()), 10);
 
 let greeting;
@@ -45,6 +44,7 @@ if (currentHour < 12) {
 
             console.log(currentHour);
             console.log(greeting);
+const options = { timeZone: 'Asia/Kolkata', hour: 'numeric', hour12: false };
 ```
 
 ---
