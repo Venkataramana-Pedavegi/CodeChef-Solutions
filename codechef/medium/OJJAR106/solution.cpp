@@ -1,3 +1,8 @@
+import React, { useState, useEffect } from 'react';
+
+function Timer() {
+  const [count, setCount] = useState(0);
+
     useEffect(() => {
         const timerID = setInterval(() => {
               setCount(c => c + 1);
@@ -22,7 +27,3 @@
                                                                   Toggle Timer
                                                                         </button>
                                                                               {showTimer && <Timer />}
-                                                                                  </div>
-                                                                                    );
-                                                                                    }
-                                                                                    
