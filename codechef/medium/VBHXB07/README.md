@@ -30,7 +30,7 @@ Click "Submit" to continue to the next lesson.
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-15T07:57:06.148Z  
+**Submitted:** 2026-10-15T15:23:05.550Z  
 
 ```cpp
 let width = 5;
