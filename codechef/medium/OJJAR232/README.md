@@ -48,33 +48,38 @@
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-15T07:52:12.994Z  
+**Submitted:** 2026-10-15T15:21:22.344Z  
 
 ```cpp
-                                                                                                                                                                                            <h2>Time Left: {timeLeft}s</h2>
-                                                                                                                                                                                                  </div>
+import { useState, useEffect, useRef } from 'react';
+import './App.css';
 
-                                                                                                                                                                                                        <div className="play-area">
-                                                                                                                                                                                                                {timeLeft > 0 &&
-                                                                                                                                                                                                                          circles.map((pos, index) => (
-                                                                                                                                                                                                                                      <Circle
-                                                                                                                                                                                                                                                    key={index}
-                                                                                                                                                                                                                                                                  x={pos.x}
-                                                                                                                                                                                                                                                                                y={pos.y}
-                                                                                                                                                                                                                                                                                              onClick={handleCircleClick}
-                                                                                                                                                                                                                                                                                                          />
-                                                                                                                                                                                                                                                                                                                    ))}
-                                                                                                                                                                                                                                                                                                                          </div>
+// Utility function to get random position for a circle
+const getRandomPosition = () => {
+  const x = Math.floor(Math.random() * 90); // % position for left
+    const y = Math.floor(Math.random() * 80); // % position for top
+      return { x, y };
+      };
 
-                                                                                                                                                                                                                                                                                                                                {/* Game over message */}
-                                                                                                                                                                                                                                                                                                                                      {timeLeft === 0 && (
-                                                                                                                                                                                                                                                                                                                                              <h2 className="end-msg">Game Over! Final Score: {score}</h2>
-                                                                                                                                                                                                                                                                                                                                                    )}
-                                                                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                                                                          );
-                                                                                                                                                                                                                                                                                                                                                          }
+      // Circle component
+      function Circle({ x, y, onClick }) {
+        return (
+            <div
+                  className="circle"
+                        data-testid="circle"
+                              style={{ left: `${x}%`, top: `${y}%` }}
+                                    onClick={onClick}
+                                        ></div>
+                                          );
+                                          }
 
-                                                                                                                                                                                                                                                                                                                                                          export default App;
+                                          function App() {
+                                            // TODO 1: Initialize circles, score, and timeLeft state variables
+                                              const [circles, setCircles] = useState([getRandomPosition()]);
+                                                const [score, setScore] = useState(0);
+                                                  const [timeLeft, setTimeLeft] = useState(10);
+
+                                                    // TODO 2: Create a ref using useRef to store the interval ID
 ```
 
 ---
