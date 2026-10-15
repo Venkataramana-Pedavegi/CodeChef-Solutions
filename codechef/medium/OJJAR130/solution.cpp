@@ -1,30 +1,29 @@
-import { useState } from 'react';
-import Tabs from './Tabs';
-import './App.css';
+import {useState} from 'react';
 
-function App() {
-  const [activeTabIndex, setActiveTabIndex] = useState(0);
-  const totalTabs = 3;
+function Tabs({ activeTabIndex, onPrevious, onNext, onTabClick }) {
+    const totalTabs = 3; // Make sure this matches your tab count
+    const isFirstTab = activeTabIndex === 0;
+    const isLastTab = activeTabIndex === totalTabs - 1;
 
-  const handleNext = () => {
-    setActiveTabIndex((prevIndex) => Math.min(prevIndex + 1, totalTabs - 1));
-  };
+    // --- TODO: Remove individual states for form fields ---
+    // States for form fields
+    const [fullName, setFullName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [address, setAddress] = useState('');
+    const [jobTitle, setJobTitle] = useState('');
+    const [company, setCompany] = useState('');
+    const [yearsExperience, setYearsExperience] = useState('0-1');
+    const [skills, setSkills] = useState('');
+    
+    // --- TODO: Create a single state object for formData ---
+    
+    
+    // Keep agreeTerms and isSubmitted as separate states
+    const [agreeTerms, setAgreeTerms] = useState(false);
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handlePrevious = () => {
-    setActiveTabIndex((prevIndex) => Math.max(prevIndex - 1, 0));
-  }; 
-  
-  // 1. Define handleTabClick function
-  const handleTabClick = (index) => {
-    // Directly set the active tab index based on the clicked header's index
-    setActiveTabIndex(index);
-  };
 
-  return (
-    <div className="App">
-      <h1>Job Application Form</h1>
-      {/* 2. Add the onTabClick prop and pass the handler */}
-      <Tabs
-        activeTabIndex={activeTabIndex}
-        onNext={handleNext}
-        onPrevious={handlePrevious}
+    // --- TODO: Remove individual change handlers (except handleAgreeTermsChange) ---
+    // Handlers for form fields
+    const handleNameChange = (e) => setFullName(e.target.value);
