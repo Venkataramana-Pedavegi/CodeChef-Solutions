@@ -42,7 +42,7 @@ Node.js will execute the code, and you'll see the Fahrenheit equivalent of the C
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-15T07:54:46.051Z  
+**Submitted:** 2026-10-15T15:22:05.574Z  
 
 ```cpp
 // Define the Celsius temperature
