@@ -91,9 +91,14 @@ Now, go ahead and update the code to add a cleanup function as given in the abov
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-07T06:44:37.904Z  
+**Submitted:** 2026-10-15T04:31:40.639Z  
 
 ```cpp
+import React, { useState, useEffect } from 'react';
+
+function Timer() {
+  const [count, setCount] = useState(0);
+
     useEffect(() => {
         const timerID = setInterval(() => {
               setCount(c => c + 1);
@@ -118,10 +123,6 @@ Now, go ahead and update the code to add a cleanup function as given in the abov
                                                                   Toggle Timer
                                                                         </button>
                                                                               {showTimer && <Timer />}
-                                                                                  </div>
-                                                                                    );
-                                                                                    }
-                                                                                    
 ```
 
 ---
