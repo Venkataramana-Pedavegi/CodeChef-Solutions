@@ -44,9 +44,32 @@ You are provided with a mock API function `fetchCryptoPrices()` that returns an 
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-15T07:38:46.699Z  
+**Submitted:** 2026-10-15T15:02:36.855Z  
 
 ```cpp
+import { useState, useEffect } from 'react'
+import { fetchCryptoPrices } from './data'
+
+function App() {
+  const [prices, setPrices] = useState([])
+
+    useEffect(() => {
+        const updatePrices = async () => {
+              const data = await fetchCryptoPrices()
+                    setPrices(data)
+                        }
+
+                            // Initial load
+                                updatePrices()
+
+                                    // Poll every 5 seconds
+                                        const intervalId = setInterval(updatePrices, 5000)
+
+                                            // Cleanup interval on unmount
+                                                return () => clearInterval(intervalId)
+                                                  }, [])
+
+                                                    return (
                                                         <div style={{ fontFamily: 'sans-serif', padding: '20px' }}>
                                                               <h1>📈 Crypto Dashboard</h1>
                                                                     <p>Updates every 5 seconds...</p>
@@ -54,23 +77,6 @@ You are provided with a mock API function `fetchCryptoPrices()` that returns an 
                                                                                   <thead>
                                                                                             <tr>
                                                                                                         <th style={{ padding: '8px', border: '1px solid gray' }}>Name</th>
-                                                                                                                    <th style={{ padding: '8px', border: '1px solid gray' }}>Price ($)</th>
-                                                                                                                              </tr>
-                                                                                                                                      </thead>
-                                                                                                                                              <tbody>
-                                                                                                                                                        {prices.map((coin, index) => (
-                                                                                                                                                                    <tr key={index}>
-                                                                                                                                                                                  <td style={{ padding: '8px', border: '1px solid gray' }}>{coin.name}</td>
-                                                                                                                                                                                                <td style={{ padding: '8px', border: '1px solid gray' }}>{coin.price}</td>
-                                                                                                                                                                                                            </tr>
-                                                                                                                                                                                                                      ))}
-                                                                                                                                                                                                                              </tbody>
-                                                                                                                                                                                                                                    </table>
-                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                          )
-                                                                                                                                                                                                                                          }
-
-                                                                                                                                                                                                                                          export default App
 ```
 
 ---
