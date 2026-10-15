@@ -46,9 +46,15 @@ This refactor will make your code cleaner and is a very common pattern in React 
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-15T05:50:40.056Z  
+**Submitted:** 2026-10-15T16:04:27.120Z  
 
 ```cpp
+import {useState} from 'react';
+
+function Tabs({ activeTabIndex, onPrevious, onNext, onTabClick }) {
+    const totalTabs = 3; // Make sure this matches your tab count
+    const isFirstTab = activeTabIndex === 0;
+    const isLastTab = activeTabIndex === totalTabs - 1;
 
     // --- TODO: Remove individual states for form fields ---
     // States for form fields
@@ -72,12 +78,6 @@ This refactor will make your code cleaner and is a very common pattern in React 
     // --- TODO: Remove individual change handlers (except handleAgreeTermsChange) ---
     // Handlers for form fields
     const handleNameChange = (e) => setFullName(e.target.value);
-    const isFirstTab = activeTabIndex === 0;
-    const isLastTab = activeTabIndex === totalTabs - 1;
-import {useState} from 'react';
-
-function Tabs({ activeTabIndex, onPrevious, onNext, onTabClick }) {
-    const totalTabs = 3; // Make sure this matches your tab count
 ```
 
 ---
