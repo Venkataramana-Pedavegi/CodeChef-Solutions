@@ -47,7 +47,7 @@ Now try changing the value of `currentActiveTab` to see if everything is working
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-15T05:06:46.348Z  
+**Submitted:** 2026-10-15T15:29:39.221Z  
 
 ```cpp
 // Receive currentActiveTab prop
