@@ -35,7 +35,7 @@ Now, let's add the Game Over condition to your 2048 game!
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-15T06:39:10.452Z  
+**Submitted:** 2026-10-16T16:38:33.944Z  
 
 ```cpp
 import { useEffect, useState } from 'react';
