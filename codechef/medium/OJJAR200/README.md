@@ -24,7 +24,7 @@ Implement functionality to detect when the player presses any of the four arrow 
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-15T06:34:43.222Z  
+**Submitted:** 2026-10-16T16:35:13.552Z  
 
 ```cpp
 import { useState } from 'react'; // Ensure useEffect is imported
