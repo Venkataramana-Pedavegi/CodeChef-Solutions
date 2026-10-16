@@ -25,7 +25,7 @@ Your task is to upgrade the existing `Hero` component in your React portfolio. Y
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-15T06:23:18.104Z  
+**Submitted:** 2026-10-16T16:29:57.742Z  
 
 ```cpp
 
