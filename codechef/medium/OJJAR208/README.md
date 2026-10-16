@@ -23,7 +23,7 @@ Okay, excellent! You've successfully implemented the Game Over logic. The game n
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-15T06:39:41.591Z  
+**Submitted:** 2026-10-16T16:39:05.435Z  
 
 ```cpp
 import { useEffect, useState } from 'react';
