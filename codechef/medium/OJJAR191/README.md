@@ -29,7 +29,7 @@ You’ve been given a template with an array—simply update that array by addin
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-15T06:27:24.836Z  
+**Submitted:** 2026-10-16T16:31:08.338Z  
 
 ```cpp
 
