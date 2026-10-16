@@ -42,7 +42,7 @@ And that's exactly what we wanted for moving `[2, 0, 4, 0]` to the right!
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-15T06:37:16.080Z  
+**Submitted:** 2026-10-16T16:36:39.648Z  
 
 ```cpp
 import { useEffect, useState } from 'react';
