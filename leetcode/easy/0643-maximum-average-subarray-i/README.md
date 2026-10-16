@@ -38,28 +38,30 @@ Output: 5.00000
 ## Solution
 
 **Language:** Java  
-**Runtime:** 2 ms (beats 99.86%)  
-**Memory:** 69.5 MB (beats 79.03%)  
-**Submitted:** 2026-10-09T14:03:08.832Z  
+**Runtime:** 5 ms (beats 33.30%)  
+**Memory:** 69 MB (beats 97.35%)  
+**Submitted:** 2026-10-16T15:39:46.526Z  
 
 ```java
 class Solution {
     public double findMaxAverage(int[] nums, int k) {
-        int sum = 0;
-
+        double currentSum = 0;
+        
+        // Compute the sum of the first window of size k
         for (int i = 0; i < k; i++) {
-            sum += nums[i];
+            currentSum += nums[i];
         }
-
-        int maxSum = sum;
-
+        
+        double maxSum = currentSum;
+        
+        // Slide the window across the rest of the array
         for (int i = k; i < nums.length; i++) {
-            sum = sum - nums[i - k] + nums[i];
-
-            maxSum = Math.max(maxSum, sum);
+            currentSum = currentSum - nums[i - k] + nums[i];
+            maxSum = Math.max(maxSum, currentSum);
         }
-
-        return (double) maxSum / k;
+        
+        // Return the maximum average
+        return maxSum / k;
     }
 }
 ```
