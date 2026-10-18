@@ -36,7 +36,7 @@ You'll implement the winner logic in the next part of the project!
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-18T15:47:03.975Z  
+**Submitted:** 2026-10-18T15:49:10.739Z  
 
 ```cpp
 export default function Square({ value, onClick }) {
