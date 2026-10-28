@@ -4,8 +4,6 @@
 
 ## Problem
 
-### Print the length
-
 Write a program to print the length of each word of the sentence given below as well as the length of the whole sentence.
 
  **Note**  - Make sure to give a space after every word or "-" when printing
@@ -30,24 +28,29 @@ Coding on CodeChef - 18
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-21T14:36:14.305Z  
+**Submitted:** 2026-10-28T14:07:14.119Z  
 
 ```java
-class Codechef
+ class Codechef
 {
-    public static void main(String[] args)
-    {
-        String one = "Coding";
+	public static void main (String[] args) 
+	{
+		String one = "Coding";
         String two = "on";
         String three = "CodeChef";
-        String four = one + " " + two + " " + three;
+        String four = one + " "+ two + " "+ three;
+        
+        
+        // Complete the code
+        System.out.println(one + " - " +one.length());
+        System.out.println(two + " - " +two.length());
+        System.out.println(three + " - " +three.length());
+        System.out.println(four + " - " +four.length());
+        
 
-        System.out.println(one + " - " + one.length());
-        System.out.println(two + " - " + two.length());
-        System.out.println(three + " - " + three.length());
-        System.out.println(four + " - " + four.length());
-    }
+	}
 }
+
 ```
 
 ---
