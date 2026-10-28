@@ -4,20 +4,40 @@
 
 ## Problem
 
-_Description not available._
+Write a program to output the squares (using multiplication) of numbers from 1 to 5 on separate lines.
+
+### Sample 1:
+Input
+Output
+
+```
+
+```
+
+```
+1 - 1
+2 - 4
+3 - 9
+4 - 16
+5 - 25
+```
 
 ## Solution
 
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-12T15:08:50.121Z  
+**Submitted:** 2026-10-28T13:57:06.724Z  
 
 ```java
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("I love Codechef");
-    }
+class Codechef
+{
+	public static void main (String[] args) 
+	{
+        for(int i=1;i<=5;i++){
+            System.out.println(i + " -" + (i * i));
+        }
+	}
 }
 
 ```
