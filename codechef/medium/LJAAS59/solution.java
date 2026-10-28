@@ -6,31 +6,34 @@ public class Main
     {
         Scanner scanner = new Scanner(System.in);
         int num;
-        num = scanner.nextInt();
-
-        if (num > 0)
+        num = scanner.nextInt(); // input first number
+        if(num > 0){
             System.out.println("Positive");
-        else if (num < 0)
+        }else if ( num < 0){
             System.out.println("Negative");
-        else
+        }else{
             System.out.println("Zero");
-
-        num = scanner.nextInt();
-
-        if (num > 0)
+        }
+        
+        
+        num = scanner.nextInt(); // input second number
+        if(num >0){
             System.out.println("Positive");
-        else if (num < 0)
+        }else if(num <0){
             System.out.println("Negative");
-        else
+        }else{
             System.out.println("Zero");
-
-        num = scanner.nextInt();
-
-        if (num > 0)
-            System.out.println("Positive");
-        else if (num < 0)
+        }
+        
+        num = scanner.nextInt(); // input third number
+        if(num >0){
+            System.out.println("positive");
+        }else if(num < 0){
             System.out.println("Negative");
-        else
+        }else{
             System.out.println("Zero");
+        }
+        
+        
     }
 }
