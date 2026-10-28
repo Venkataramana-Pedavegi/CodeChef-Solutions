@@ -4,8 +4,6 @@
 
 ## Problem
 
-### Positive and Negative
-
 Write a program to check whether the three given numbers as input are  **Positive, Negative, or Zero**.
 
 ### Sample 1:
@@ -29,7 +27,7 @@ Negative
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-25T14:38:27.365Z  
+**Submitted:** 2026-10-28T14:22:50.248Z  
 
 ```java
 import java.util.Scanner;
@@ -40,32 +38,35 @@ public class Main
     {
         Scanner scanner = new Scanner(System.in);
         int num;
-        num = scanner.nextInt();
-
-        if (num > 0)
+        num = scanner.nextInt(); // input first number
+        if(num > 0){
             System.out.println("Positive");
-        else if (num < 0)
+        }else if ( num < 0){
             System.out.println("Negative");
-        else
+        }else{
             System.out.println("Zero");
-
-        num = scanner.nextInt();
-
-        if (num > 0)
+        }
+        
+        
+        num = scanner.nextInt(); // input second number
+        if(num >0){
             System.out.println("Positive");
-        else if (num < 0)
+        }else if(num <0){
             System.out.println("Negative");
-        else
+        }else{
             System.out.println("Zero");
-
-        num = scanner.nextInt();
-
-        if (num > 0)
-            System.out.println("Positive");
-        else if (num < 0)
+        }
+        
+        num = scanner.nextInt(); // input third number
+        if(num >0){
+            System.out.println("positive");
+        }else if(num < 0){
             System.out.println("Negative");
-        else
+        }else{
             System.out.println("Zero");
+        }
+        
+        
     }
 }
 ```
