@@ -1,15 +1,19 @@
-class Codechef
+ class Codechef
 {
-    public static void main(String[] args)
-    {
-        String one = "Coding";
+	public static void main (String[] args) 
+	{
+		String one = "Coding";
         String two = "on";
         String three = "CodeChef";
-        String four = one + " " + two + " " + three;
+        String four = one + " "+ two + " "+ three;
+        
+        
+        // Complete the code
+        System.out.println(one + " - " +one.length());
+        System.out.println(two + " - " +two.length());
+        System.out.println(three + " - " +three.length());
+        System.out.println(four + " - " +four.length());
+        
 
-        System.out.println(one + " - " + one.length());
-        System.out.println(two + " - " + two.length());
-        System.out.println(three + " - " + three.length());
-        System.out.println(four + " - " + four.length());
-    }
+	}
 }
