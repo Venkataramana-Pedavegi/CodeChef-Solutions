@@ -4,8 +4,6 @@
 
 ## Problem
 
-### Increase or Decrease
-
 Write a program that takes three numbers as input and prints " **Increasing** " if the numbers are in strictly increasing order, " **Decreasing** " if they are in strictly decreasing order, and " **Neither** " otherwise.
 
 ### Sample 1:
@@ -25,28 +23,34 @@ Increasing
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-26T17:40:41.380Z  
+**Submitted:** 2026-10-28T14:30:00.632Z  
 
 ```java
 import java.util.Scanner;
 
-public class Main {
-    public static void main(String[] args) {
-        int a, b, c;
-        Scanner scanner = new Scanner(System.in);
-        a = scanner.nextInt();
-        b = scanner.nextInt();
-        c = scanner.nextInt();
+class Codechef
+{
+	public static void main (String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+		int a =sc.nextInt();
+		int b =sc.nextInt();
+		int c =sc.nextInt();
+		
+		if(a < b && b < c){
+		    System.out.println("Increasing");
+		}
+		else if(a > b && b > c){
+		    System.out.println("Decreasing");
+		}
+		else{
+		    System.out.println("Neither");
+		}
+		sc.close();
 
-        if (a < b && b < c) {
-            System.out.println("Increasing");
-        } else if (a > b && b > c) {
-            System.out.println("Decreasing");
-        } else {
-            System.out.println("Neither");
-        }
-    }
+	}
 }
+
 ```
 
 ---
