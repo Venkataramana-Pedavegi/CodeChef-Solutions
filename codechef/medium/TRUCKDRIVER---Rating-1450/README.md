@@ -55,7 +55,7 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-27T14:50:10.318Z  
+**Submitted:** 2026-10-29T17:04:32.213Z  
 
 ```java
 class ShipCapacity {
