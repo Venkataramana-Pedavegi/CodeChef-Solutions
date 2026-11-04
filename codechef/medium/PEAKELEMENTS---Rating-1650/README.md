@@ -88,7 +88,7 @@ Peaks are `[1,1] = 30` and `[2,2] = 32`. So both answers are correct
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-03T03:55:31.850Z  
+**Submitted:** 2026-11-04T07:56:15.521Z  
 
 ```java
 public static int[] findPeakGrid(int m, int n, int[][] mat) {
