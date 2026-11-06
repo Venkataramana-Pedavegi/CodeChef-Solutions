@@ -5,9 +5,9 @@ class Solution {
 
         while (low <= high) {
             int mid = low + (high - low) / 2;
-            int missing = nums[mid] - (mid + 1);
+            int missingBeforeMid = nums[mid] - (mid + 1);
 
-            if (missing < k) {
+            if (missingBeforeMid < k) {
                 low = mid + 1;
             } else {
                 high = mid - 1;
