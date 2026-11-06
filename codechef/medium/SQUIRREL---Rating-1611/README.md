@@ -66,7 +66,7 @@ Total time to gather $5$ chestnuts is $3$ seconds.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-06T14:42:18.933Z  
+**Submitted:** 2026-11-06T14:43:01.324Z  
 
 ```java
 import java.io.*;
