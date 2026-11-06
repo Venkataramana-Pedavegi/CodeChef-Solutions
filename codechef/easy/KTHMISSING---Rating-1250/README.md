@@ -60,7 +60,7 @@ For the first test case the missing positive numbers are: 1,2,4,7,8,9....
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-29T17:05:36.035Z  
+**Submitted:** 2026-11-06T16:20:53.115Z  
 
 ```java
 class Solution {
@@ -70,9 +70,9 @@ class Solution {
 
         while (low <= high) {
             int mid = low + (high - low) / 2;
-            int missing = nums[mid] - (mid + 1);
+            int missingBeforeMid = nums[mid] - (mid + 1);
 
-            if (missing < k) {
+            if (missingBeforeMid < k) {
                 low = mid + 1;
             } else {
                 high = mid - 1;
