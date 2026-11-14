@@ -1,22 +1,24 @@
-public class Payment {
-    private final double amount;
+public class UpiPayment extends Payment {
+    private final String upiId;
 
-    public Payment(double amount) {
-        if (!Double.isFinite(amount) || amount <= 0) {
-            throw new IllegalArgumentException("Invalid payment amount");
+    public UpiPayment(double amount, String upiId) {
+        super(amount);
+
+        if (upiId == null || upiId.trim().isEmpty()) {
+            throw new IllegalArgumentException("Invalid UPI ID");
         }
 
-        this.amount = amount;
+        this.upiId = upiId;
     }
 
-    public double getAmount() {
-        return amount;
+    public String getUpiId() {
+        return upiId;
     }
 
-    // TODO 1: Declare this class as abstract.
-
-    // TODO 2: Declare an abstract method named processPayment()
-    // that takes no arguments and returns void.
-
-    
+    @Override
+    public void processPayment() {
+        System.out.println("UPI payment of " + getAmount() + " processed for " + upiId);
+    }
 }
+
+
