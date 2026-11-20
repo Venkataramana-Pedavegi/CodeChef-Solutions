@@ -1,51 +1,49 @@
 import java.util.*;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 
-// Implement the complete Equation and LinearEquation classes here.
-class Equation {
+// Write the complete Sequence and ArithmeticProgression classes here.
+class Sequence {
     private long a;
-    private long b;
-
-    public Equation(long a, long b) {
-        this.a = a;
-        this.b = b;
-    }
-
-    public long getA() {
-        return a;
-    }
-
-    public long getB() {
-        return b;
-    }
-}
-
-class LinearEquation extends Equation {
-    private long c;
     private long d;
 
-    public LinearEquation(long a, long b, long c, long d) {
-        super(a, b);
-        this.c = c;
+    public Sequence(long a, long d) {
+        this.a = a;
         this.d = d;
     }
 
-    public int getSolutionType() {
-        long diffCoeff = getA() - c;
-        long diffConst = d - getB();
-
-        if (diffCoeff != 0) {
-            return 1;
-        } else if (diffConst != 0) {
-            return 0;
-        } else {
-            return 2;
-        }
+    public long getFirstTerm() {
+        return a;
     }
 
-    public double getSolution() {
-        return (double) (d - getB()) / (getA() - c);
+    public long getDifference() {
+        return d;
+    }
+}
+
+class ArithmeticProgression extends Sequence {
+    private long n;
+
+    public ArithmeticProgression(long a, long d, long n) {
+        super(a, d);
+        this.n = n;
+    }
+
+    public long getLastTerm() {
+        return getFirstTerm() + (n - 1) * getDifference();
+    }
+
+    public long getSum() {
+        return (n * (2 * getFirstTerm() + (n - 1) * getDifference())) / 2;
+    }
+
+    public String getTrend() {
+        long d = getDifference();
+        if (d > 0) {
+            return "INCREASING";
+        } else if (d < 0) {
+            return "DECREASING";
+        } else {
+            return "CONSTANT";
+        }
     }
 }
 
@@ -58,32 +56,17 @@ public class Main {
         int T = sc.nextInt();
         StringBuilder out = new StringBuilder();
 
-        for (int t = 0; t < T; t++) {
+        while (T-- > 0) {
             long a = sc.nextLong();
-            long b = sc.nextLong();
-            long c = sc.nextLong();
             long d = sc.nextLong();
+            long n = sc.nextLong();
 
-            LinearEquation eq = new LinearEquation(a, b, c, d);
-            int type = eq.getSolutionType();
+            ArithmeticProgression ap =
+                new ArithmeticProgression(a, d, n);
 
-            if (type == 0) {
-                out.append("No solution\n");
-            }
-            else if (type == 2) {
-                out.append("Infinite solutions\n");
-            }
-            else {
-                double x = eq.getSolution();
-
-                String rounded = BigDecimal.valueOf(x)
-                        .setScale(2, RoundingMode.HALF_UP)
-                        .toPlainString();
-
-                out.append("One solution: ")
-                   .append(rounded)
-                   .append('\n');
-            }
+            out.append(ap.getLastTerm()).append(' ')
+               .append(ap.getSum()).append(' ')
+               .append(ap.getTrend()).append('\n');
         }
 
         System.out.print(out);
