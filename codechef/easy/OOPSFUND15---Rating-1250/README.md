@@ -107,7 +107,7 @@ Test Case 5: $x + 5 = 3x + 5$, giving $x = 0$.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-20T14:28:27.021Z  
+**Submitted:** 2026-11-20T14:28:49.687Z  
 
 ```java
 import java.util.*;
