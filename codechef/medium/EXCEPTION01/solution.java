@@ -1,34 +1,53 @@
-import java.util.Scanner;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
 
-class Codechef {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+class InvalidAgeException extends RuntimeException
+{
+    public InvalidAgeException(String message)
+    {
+        super(message);
+    }
+}
 
-        if (!sc.hasNextInt()) return;
-        int n = sc.nextInt();
+class Person
+{
+    private int age;
 
-        int validCount = 0;
-        long sum = 0;
-
-        for (int i = 0; i < n; i++) {
-            if (!sc.hasNext()) break;
-            String token = sc.next();
-
-            // Strip leading '+' sign if present for standard parsing
-            String parseableToken = token;
-            if (token.startsWith("+") && token.length() > 1 && token.charAt(1) != '+') {
-                parseableToken = token.substring(1);
-            }
-
-            try {
-                long val = Long.parseLong(parseableToken);
-                validCount++;
-                sum += val;
-            } catch (NumberFormatException e) {
-                // Skips strings that are invalid
-            }
+    public void setAge(int age)
+    {
+        if (age < 0 || age > 120)
+        {
+            throw new InvalidAgeException("Invalid Age");
         }
 
-        System.out.println(validCount + " " + sum);
+        this.age = age;
+    }
+
+    public int getAge()
+    {
+        return age;
+    }
+}
+
+class Codechef
+{
+    public static void main(String[] args) throws java.lang.Exception
+    {
+        Scanner sc = new Scanner(System.in);
+
+        int age = sc.nextInt();
+
+        Person person = new Person();
+
+        try
+        {
+            person.setAge(age);
+            System.out.println("Age Accepted: " + person.getAge());
+        }
+        catch (InvalidAgeException e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
 }
