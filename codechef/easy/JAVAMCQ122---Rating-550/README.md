@@ -13,7 +13,7 @@ What is the primary purpose of the 'synchronized' keyword in Java?
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-21T14:07:16.100Z  
+**Submitted:** 2026-11-21T14:07:18.798Z  
 
 ```cpp
 import java.io.*;
