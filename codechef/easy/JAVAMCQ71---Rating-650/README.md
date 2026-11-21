@@ -13,7 +13,7 @@ Which of the following is the superclass of all exception classes in Java?
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-21T14:06:58.196Z  
+**Submitted:** 2026-11-21T14:07:01.083Z  
 
 ```cpp
 import java.io.*;
