@@ -13,7 +13,7 @@ Which of the following is NOT a thread-safe collection in Java's concurrent pack
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-21T14:07:28.404Z  
+**Submitted:** 2026-11-21T14:07:31.189Z  
 
 ```cpp
 import java.io.*;
