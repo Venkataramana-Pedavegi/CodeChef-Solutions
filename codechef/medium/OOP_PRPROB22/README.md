@@ -55,7 +55,7 @@ The main thread waits for the first thread using `join()`. After it finishes, th
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-21T14:01:54.000Z  
+**Submitted:** 2026-11-21T14:02:02.492Z  
 
 ```java
 import java.util.Scanner;
