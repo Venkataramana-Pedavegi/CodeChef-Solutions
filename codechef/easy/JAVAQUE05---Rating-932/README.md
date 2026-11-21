@@ -52,7 +52,7 @@ REMOVE_REAR
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-21T14:16:21.625Z  
+**Submitted:** 2026-11-21T14:16:36.470Z  
 
 ```java
 import java.util.*;
