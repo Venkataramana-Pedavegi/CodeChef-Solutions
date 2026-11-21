@@ -10,12 +10,12 @@ The most fundamental way to prevent race conditions is to ensure that the critic
 
 ## Solution
 
-**Language:** default  
+**Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-21T14:04:10.766Z  
+**Submitted:** 2026-11-21T14:04:28.100Z  
 
-```default
+```cpp
 import java.util.*;
 
 class SharedResource
