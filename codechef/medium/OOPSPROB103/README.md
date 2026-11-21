@@ -4,16 +4,18 @@
 
 ## Problem
 
-_Description not available._
+### MCQ - A Classic Vulnerability Pattern
+
+The  **"read-modify-write"**  sequence (e.g.,  **`balance = balance + 500`**) is particularly vulnerable to race conditions. Why?
 
 ## Solution
 
-**Language:** default  
+**Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-21T14:03:52.762Z  
+**Submitted:** 2026-11-21T14:03:59.817Z  
 
-```default
+```cpp
 import java.util.*;
 
 class SharedResource
