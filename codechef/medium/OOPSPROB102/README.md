@@ -4,16 +4,18 @@
 
 ## Problem
 
-_Description not available._
+### MCQ - Necessary Conditions for a Race Condition
+
+A race condition can only occur if which of the following conditions are met?
 
 ## Solution
 
-**Language:** Java  
+**Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-21T14:03:44.057Z  
+**Submitted:** 2026-11-21T14:03:50.619Z  
 
-```java
+```cpp
 import java.util.*;
 
 class SharedResource
