@@ -1,0 +1,3 @@
+The dispatch workflow was extended by adding a new TransportPartner implementation instead of modifying existing logic. This allows the system to support new transport types while keeping existing code unchanged, which follows the Open/Closed Principle.
+
+DispatchService was handling dispatch operations as well as route calculation logic. Moving route planning into RoutePlanner gives each class a focused responsibility, improving maintainability and class cohesion.
