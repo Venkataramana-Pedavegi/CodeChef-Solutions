@@ -1,93 +1,72 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.util.*;
 
-class NumberTask implements Runnable
-{
-    private final int left;
-    private final int right;
-    private final int divisor;
+class SegmentWorker extends Thread {
+    private int[] arr;
+    private int start;
+    private int end;
+    private int sum;
 
-    NumberTask(int left, int right, int divisor)
-    {
-        this.left = left;
-        this.right = right;
-        this.divisor = divisor;
+    public SegmentWorker(int[] arr, int start, int end) {
+        this.arr = arr;
+        this.start = start;
+        this.end = end;
+        this.sum = 0;
     }
 
     @Override
-    public void run()
-    {
-        StringBuilder result = new StringBuilder();
-
-        for (int number = left; number <= right; number++) {
-            if (number % divisor == 0) {
-                result.append(number).append(' ');
-            }
+    public void run() {
+        for (int i = start; i < end; i++) {
+            sum += arr[i];
         }
+    }
 
-        System.out.print(result);
+    public int getSum() {
+        return sum;
     }
 }
 
-class MessageTask implements Runnable
-{
-    private final int threadNumber;
+class Codechef {
 
-    MessageTask(int threadNumber)
-    {
-        this.threadNumber = threadNumber;
+    public static void processArrayAndPrintResults(int[] arr) throws InterruptedException {
+            // Initialize workers for each segment
+        SegmentWorker worker0 = new SegmentWorker(arr, 0, 3);
+        SegmentWorker worker1 = new SegmentWorker(arr, 3, 6);
+        SegmentWorker worker2 = new SegmentWorker(arr, 6, 9);
+    
+        // Start all threads
+        worker0.start();
+        worker1.start();
+        worker2.start();
+    
+        // Wait for threads to complete
+        worker0.join();
+        worker1.join();
+        worker2.join();
+    
+        // Calculate sums
+        int sum0 = worker0.getSum();
+        int sum1 = worker1.getSum();
+        int sum2 = worker2.getSum();
+        int totalSum = sum0 + sum1 + sum2;
+    
+        // Print output
+        System.out.println("Segment 0 Sum: " + sum0);
+        System.out.println("Segment 1 Sum: " + sum1);
+        System.out.println("Segment 2 Sum: " + sum2);
+        System.out.println("Total Sum: " + totalSum);
     }
 
-    @Override
-    public void run()
-    {
-        System.out.print("Thread " + threadNumber + " Done");
+public static void main(String[] args) throws InterruptedException {
+        Scanner sc = new Scanner(System.in);
+        int[] arr = new int[9];
 
-        if (threadNumber == 2) {
-            System.out.print(' ');
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = sc.nextInt();
         }
-    }
-}
 
-public class Main
-{
-    public static void main(String[] args) throws Exception
-    {
-        BufferedReader reader =
-            new BufferedReader(new InputStreamReader(System.in));
+        // Execution delegated to the helper function
+        processArrayAndPrintResults(arr);
 
-        StringTokenizer tokenizer =
-            new StringTokenizer(reader.readLine());
-
-        int left =
-            Integer.parseInt(tokenizer.nextToken());
-
-        int right =
-            Integer.parseInt(tokenizer.nextToken());
-
-        int divisor =
-            Integer.parseInt(tokenizer.nextToken());
-
-        Thread thread1 =
-            new Thread(new MessageTask(1));
-
-        Thread thread2 =
-            new Thread(new MessageTask(2));
-
-        Thread thread3 =
-            new Thread(
-                new NumberTask(left, right, divisor)
-            );
-
-        // Required execution order: Thread 3 -> Thread 2 -> Thread 1
-        thread3.start();
-        thread3.join();
-
-        thread2.start();
-        thread2.join();
-
-        thread1.start();
-        thread1.join();
+        sc.close();
     }
 }
