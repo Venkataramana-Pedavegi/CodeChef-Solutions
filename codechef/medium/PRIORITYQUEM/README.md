@@ -25,7 +25,7 @@ System.out.println(pq.poll());
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-21T14:17:18.840Z  
+**Submitted:** 2026-11-21T14:17:21.604Z  
 
 ```cpp
 import java.io.*;
