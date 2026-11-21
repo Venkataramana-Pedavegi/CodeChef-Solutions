@@ -13,7 +13,7 @@ Which statement about BlockingQueue in Java is correct?
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-21T14:18:28.265Z  
+**Submitted:** 2026-11-21T14:18:31.461Z  
 
 ```cpp
 import java.util.*;
