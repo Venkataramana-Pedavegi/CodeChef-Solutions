@@ -13,7 +13,7 @@ The  **"read-modify-write"**  sequence (e.g.,  **`balance = balance + 500`**) is
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-21T14:03:59.817Z  
+**Submitted:** 2026-11-21T14:04:02.389Z  
 
 ```cpp
 import java.util.*;
