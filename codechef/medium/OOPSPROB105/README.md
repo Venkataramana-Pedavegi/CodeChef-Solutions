@@ -13,7 +13,7 @@ Which of the following is  **NOT**  typically used to prevent race conditions?
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-21T14:04:36.373Z  
+**Submitted:** 2026-11-21T14:04:38.829Z  
 
 ```cpp
 import java.util.*;
