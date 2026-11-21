@@ -13,7 +13,7 @@ Which of the following statements about ArrayDeque is correct?
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-21T14:15:37.257Z  
+**Submitted:** 2026-11-21T14:15:39.940Z  
 
 ```cpp
 import java.util.*;
