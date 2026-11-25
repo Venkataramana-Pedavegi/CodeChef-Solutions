@@ -1,88 +1,44 @@
 import java.util.*;
+import java.lang.*;
 import java.io.*;
-
-class Stack
-{
-    private char[] arr;
-    private int top;
-    private int capacity;
-
-    int pushOperations;
-    int popOperations;
-
-    Stack(int capacity)
-    {
-        this.capacity = capacity;
-        arr = new char[capacity];
-        top = -1;
-
-        pushOperations = 0;
-        popOperations = 0;
-    }
-
-    void push(char ch)
-    {
-        if (top == capacity - 1)
-        {
-            capacity *= 2;
-            arr = Arrays.copyOf(arr, capacity);
-        }
-
-        arr[++top] = ch;
-        pushOperations++;
-    }
-
-    char pop()
-    {
-        if (isEmpty())
-        {
-            return '\0';
-        }
-
-        popOperations++;
-        return arr[top--];
-    }
-
-    boolean isEmpty()
-    {
-        return top == -1;
-    }
-
-    int getCapacity()
-    {
-        return capacity;
-    }
-}
 
 class Codechef
 {
-    public static void main(String[] args) throws Exception
+    public static boolean isBalanced(String expression) {
+        Stack < Character > stack = new Stack < > ();
+
+        for (char ch: expression.toCharArray()) {
+            if (ch == '(') {
+                stack.push(ch);
+            } else if (ch == ')') {
+                if (stack.isEmpty()) {
+                    return false;
+                }
+
+                stack.pop();
+            }
+        }
+
+        return stack.isEmpty();
+    }
+
+
+    public static void main(String[] args) throws java.lang.Exception
     {
-        BufferedReader br =
-            new BufferedReader(new InputStreamReader(System.in));
+        Scanner sc = new Scanner(System.in);
 
-        int k = Integer.parseInt(br.readLine());
+        int n = sc.nextInt();
+        sc.nextLine();
 
-        String str = br.readLine();
+        for (int i = 0; i < n; i++) {
+            String expression = sc.nextLine();
 
-        Stack stack = new Stack(k);
+            boolean result = isBalanced(expression);
 
-        for (int i = 0; i < str.length(); i++)
-        {
-            stack.push(str.charAt(i));
+            System.out.println(expression + " : " + result);
         }
 
-        StringBuilder reversed = new StringBuilder();
+        sc.close();
 
-        while (!stack.isEmpty())
-        {
-            reversed.append(stack.pop());
-        }
-
-        System.out.println("Original: " + str);
-        System.out.println("Reversed: " + reversed);
-        System.out.println("Push Operations: " + stack.pushOperations);
-        System.out.println("Pop Operations: " + stack.popOperations);
-        System.out.println("Final Capacity: " + stack.getCapacity());
     }
 }
