@@ -13,7 +13,7 @@ Which statement about LinkedHashSet in Java is correct?
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-25T14:42:39.286Z  
+**Submitted:** 2026-11-25T14:42:42.961Z  
 
 ```cpp
 import java.io.BufferedReader;
