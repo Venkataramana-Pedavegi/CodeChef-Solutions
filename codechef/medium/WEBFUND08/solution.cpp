@@ -1,0 +1,1 @@
+PUT is used to completely replace an existing resource, while PATCH is used to partially modify an existing resource.
