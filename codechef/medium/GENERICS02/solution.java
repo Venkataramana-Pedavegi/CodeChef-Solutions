@@ -1,46 +1,123 @@
 import java.io.*;
 import java.util.*;
 
-public class Main {
+class Triplet<T, U, V>
+{
+    private T first;
+    private U second;
+    private V third;
 
-    public static <T extends Comparable<T>> T findMax(T[] arr) {
-        T max = arr[0];
-
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i].compareTo(max) > 0) {
-                max = arr[i];
-            }
-        }
-
-        return max;
+    Triplet()
+    {
+        first = null;
+        second = null;
+        third = null;
     }
 
-    public static void main(String[] args) throws Exception {
+    void setFirst(T value)
+    {
+        first = value;
+    }
 
+    void setSecond(U value)
+    {
+        second = value;
+    }
+
+    void setThird(V value)
+    {
+        third = value;
+    }
+
+    T getFirst()
+    {
+        return first;
+    }
+
+    U getSecond()
+    {
+        return second;
+    }
+
+    V getThird()
+    {
+        return third;
+    }
+
+    boolean isComplete()
+    {
+        return first != null &&
+               second != null &&
+               third != null;
+    }
+
+    void reset()
+    {
+        first = null;
+        second = null;
+        third = null;
+    }
+}
+
+class Codechef
+{
+    public static void main(String[] args) throws Exception
+    {
         BufferedReader br =
-                new BufferedReader(new InputStreamReader(System.in));
+            new BufferedReader(new InputStreamReader(System.in));
 
-        int n = Integer.parseInt(br.readLine().trim());
+        int q = Integer.parseInt(br.readLine());
 
-        StringTokenizer st = new StringTokenizer(br.readLine());
+        Triplet<Integer, String, Double> triplet =
+            new Triplet<>();
 
-        Integer[] integers = new Integer[n];
+        while (q-- > 0)
+        {
+            StringTokenizer st =
+                new StringTokenizer(br.readLine());
 
-        for (int i = 0; i < n; i++) {
-            integers[i] = Integer.parseInt(st.nextToken());
+            String operation = st.nextToken();
+
+            if (operation.equals("FIRST"))
+            {
+                int value =
+                    Integer.parseInt(st.nextToken());
+
+                triplet.setFirst(value);
+            }
+            else if (operation.equals("SECOND"))
+            {
+                String value = st.nextToken();
+
+                triplet.setSecond(value);
+            }
+            else if (operation.equals("THIRD"))
+            {
+                double value =
+                    Double.parseDouble(st.nextToken());
+
+                triplet.setThird(value);
+            }
+            else if (operation.equals("CHECK"))
+            {
+                System.out.println(
+                    triplet.isComplete()
+                    ? "Complete"
+                    : "Incomplete"
+                );
+            }
+            else if (operation.equals("PRINT"))
+            {
+                System.out.println(
+                    triplet.getFirst() + " " +
+                    triplet.getSecond() + " " +
+                    triplet.getThird()
+                );
+            }
+            else if (operation.equals("RESET"))
+            {
+                triplet.reset();
+            }
         }
-
-        int m = Integer.parseInt(br.readLine().trim());
-
-        st = new StringTokenizer(br.readLine());
-
-        Double[] doubles = new Double[m];
-
-        for (int i = 0; i < m; i++) {
-            doubles[i] = Double.parseDouble(st.nextToken());
-        }
-
-        System.out.println(findMax(integers));
-        System.out.println(findMax(doubles));
     }
 }
