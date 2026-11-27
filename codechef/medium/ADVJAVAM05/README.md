@@ -13,7 +13,7 @@ A quiz application has four answer options. The developer wants the user to sele
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-27T14:04:17.741Z  
+**Submitted:** 2026-11-27T14:04:20.905Z  
 
 ```cpp
 The Web Tier handles HTTP requests and responses and commonly uses Servlets or JSP.
