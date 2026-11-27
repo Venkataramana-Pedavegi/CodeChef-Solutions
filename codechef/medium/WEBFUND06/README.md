@@ -18,7 +18,7 @@ https://example.com
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-27T14:16:09.055Z  
+**Submitted:** 2026-11-27T14:16:12.001Z  
 
 ```cpp
 PUT is used to completely replace an existing resource, while PATCH is used to partially modify an existing resource.
