@@ -115,39 +115,34 @@ Quiz Completed! Score: 4/5
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-27T14:06:21.426Z  
+**Submitted:** 2026-11-27T14:06:59.714Z  
 
 ```cpp
-package com.swingquiz;
 
-public class Question {
+        } else {
 
-    private String questionText;
-    private String[] options;
-    private int correctOptionIndex;
-
-    public Question(
-            String questionText,
-            String[] options,
-            int correctOptionIndex) {
-
-        // TODO: Store the question text.
-
-        // TODO: Store the four answer options.
-
-        // TODO: Store the correct option index.
+            currentQuestionIndex++;
+            displayQuestion();
+        }
     }
 
-    public String getQuestionText() {
+    private void showResult() {
 
-        // TODO: Return the question text.
-        return null;
+        // Task completed: Display the final result.
+        statusLabel.setText(
+                "Quiz Completed! Score: "
+                        + score
+                        + "/"
+                        + questions.size());
+
+        // Task completed: Prevent additional answers.
+        for (JRadioButton button : optionButtons) {
+            button.setEnabled(false);
+        }
+
+        nextButton.setEnabled(false);
     }
-
-    public String[] getOptions() {
-
-        // TODO: Return the four answer options.
-        return null;
+}
 ```
 
 ---
