@@ -1,0 +1,1 @@
+A web container provides the runtime environment for Servlets. It receives HTTP requests, manages Servlet objects and their lifecycle, calls appropriate Servlet methods, and sends HTTP responses back to clients.
