@@ -1,0 +1,1 @@
+A web container is required because it provides the runtime environment for Servlets. It receives HTTP requests, manages the Servlet lifecycle, calls methods such as doGet() and doPost(), and sends HTTP responses back to the client.
